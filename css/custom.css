@@ -1,0 +1,4 @@
+/* 将进度条的圆角去掉 */
+::-webkit-scrollbar-thumb {
+    border-radius: 0;
+}
