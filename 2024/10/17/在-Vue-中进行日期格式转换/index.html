@@ -28,7 +28,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://kitenx.github.io/huyanqun.github.io/img/blogsCom.jpg">
 <meta property="article:published_time" content="2024-10-17T07:31:14.000Z">
-<meta property="article:modified_time" content="2024-10-17T08:25:08.091Z">
+<meta property="article:modified_time" content="2024-11-05T10:17:44.241Z">
 <meta property="article:author" content="胡燕群">
 <meta property="article:tag" content="Vue">
 <meta name="twitter:card" content="summary_large_image">
@@ -248,7 +248,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          850 字
+          900 字
         
       </span>
     
@@ -301,7 +301,7 @@
               <p id="updated-time" class="note note-info" style="">
                 
                   
-                    本文最后更新于 2024年10月17日 下午
+                    本文最后更新于 2024年11月5日 晚上
                   
                 
               </p>
@@ -319,7 +319,10 @@
 <p>template 布局容器</p>
 <p><code>:data=&quot;List&quot;</code> 的数据来源于接口 当然也可以自己 <code>mock</code>假数据</p>
 </blockquote>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs vue">&lt;el-table :data=&quot;List&quot;&gt;<br>  &lt;el-table-column prop=&quot;Name&quot; label=&quot;名称&quot; /&gt;<br>  &lt;el-table-column label=&quot;最大时间&quot;&gt;<br>    &lt;template #default=&quot;scope&quot;&gt;<br>      &#123;&#123; formatTime(scope.row.maxTime) &#125;&#125;<br>    &lt;/template&gt;<br>  &lt;/el-table-column&gt;<br>&lt;/el-table&gt;<br></code></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">el-table</span> <span class="hljs-attr">:data</span>=<span class="hljs-string">&quot;List&quot;</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">el-table-column</span> <span class="hljs-attr">prop</span>=<span class="hljs-string">&quot;Name&quot;</span> <span class="hljs-attr">label</span>=<span class="hljs-string">&quot;名称&quot;</span> /&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">el-table-column</span> <span class="hljs-attr">label</span>=<span class="hljs-string">&quot;最大时间&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">template</span> #<span class="hljs-attr">default</span>=<span class="hljs-string">&quot;scope&quot;</span>&gt;</span><br>      &#123;&#123; formatTime(scope.row.maxTime) &#125;&#125;<br>    <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">el-table-column</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">el-table</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p>或</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">el-form</span> <span class="hljs-attr">:model</span>=<span class="hljs-string">&quot;form&quot;</span> <span class="hljs-attr">label-width</span>=<span class="hljs-string">&quot;80px&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">el-form-item</span> <span class="hljs-attr">label</span>=<span class="hljs-string">&quot;创建时间&quot;</span> <span class="hljs-attr">prop</span>=<span class="hljs-string">&quot;createTime&quot;</span>&gt;</span><br>    	<span class="hljs-tag">&lt;<span class="hljs-name">el-input</span> <span class="hljs-attr">:value</span>=<span class="hljs-string">&quot;formatTime(form.createTime)&quot;</span> <span class="hljs-attr">disabled</span> /&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">el-form-item</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">el-form</span>&gt;</span><br></code></pre></td></tr></table></figure>
 
 <blockquote>
 <p>script </p>
@@ -429,7 +432,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>更新于</div>
-          <div>2024年10月17日</div>
+          <div>2024年11月5日</div>
         </div>
       
       
