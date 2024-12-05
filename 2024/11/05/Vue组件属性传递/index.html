@@ -19,16 +19,16 @@
   <meta name="author" content="胡燕群">
   <meta name="keywords" content="">
   
-    <meta name="description" content="父组件代码部分： 1234567891011121314151617181920212223&lt;template&gt;  &lt;div&gt;    &lt;h1&gt;父组件&lt;&#x2F;h1&gt;    &lt;child-component :message&#x3D;&quot;parentMessage&quot; @increment&#x3D;&quot;incrementCount&quot;">
+    <meta name="description" content="父组件定义一个 h1 标签 ，包裹 子组件 child-component  ，写了一个简单的计数功能，定义了一个字符串常量 parentMessage 和 响应式的 count , 通过 message 这个属性把常量 parentMessage 传递给子组件，子组件定义 props 接收 message 属性直接渲染。 注意：父传子 语法：:message&#x3D;&quot;parentMessag">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Vue组件属性传递">
 <meta property="og:url" content="https://kitenx.github.io/huyanqun.github.io/2024/11/05/Vue%E7%BB%84%E4%BB%B6%E5%B1%9E%E6%80%A7%E4%BC%A0%E9%80%92/index.html">
 <meta property="og:site_name" content="XH日常">
-<meta property="og:description" content="父组件代码部分： 1234567891011121314151617181920212223&lt;template&gt;  &lt;div&gt;    &lt;h1&gt;父组件&lt;&#x2F;h1&gt;    &lt;child-component :message&#x3D;&quot;parentMessage&quot; @increment&#x3D;&quot;incrementCount&quot;">
+<meta property="og:description" content="父组件定义一个 h1 标签 ，包裹 子组件 child-component  ，写了一个简单的计数功能，定义了一个字符串常量 parentMessage 和 响应式的 count , 通过 message 这个属性把常量 parentMessage 传递给子组件，子组件定义 props 接收 message 属性直接渲染。 注意：父传子 语法：:message&#x3D;&quot;parentMessag">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://kitenx.github.io/huyanqun.github.io/img/blogsCom.jpg">
 <meta property="article:published_time" content="2024-11-05T06:21:56.000Z">
-<meta property="article:modified_time" content="2024-11-05T06:25:38.379Z">
+<meta property="article:modified_time" content="2024-12-05T02:18:47.053Z">
 <meta property="article:author" content="胡燕群">
 <meta property="article:tag" content="Vue">
 <meta name="twitter:card" content="summary_large_image">
@@ -248,7 +248,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          529 字
+          770 字
         
       </span>
     
@@ -259,7 +259,7 @@
         
         
         
-          5 分钟
+          7 分钟
         
       </span>
     
@@ -301,7 +301,7 @@
               <p id="updated-time" class="note note-info" style="">
                 
                   
-                    本文最后更新于 2024年11月5日 下午
+                    本文最后更新于 2024年12月5日 上午
                   
                 
               </p>
@@ -309,7 +309,10 @@
             
               <div class="markdown-body">
                 
-                <h3 id="父组件"><a href="#父组件" class="headerlink" title="父组件"></a>父组件</h3><p>代码部分：</p>
+                <h3 id="父组件"><a href="#父组件" class="headerlink" title="父组件"></a>父组件</h3><p>定义一个 h1 标签 ，包裹 子组件 <code>child-component</code>  ，写了一个简单的计数功能，定义了一个字符串常量 <code>parentMessage</code> 和 响应式的 <code>count</code> , 通过 <code>message</code> 这个属性把常量 <code>parentMessage</code> 传递给子组件，子组件定义 <code>props</code> 接收 <code>message</code> 属性直接渲染。</p>
+<p>注意：父传子 语法：<code>:message=&quot;parentMessage&quot;</code> </p>
+<p><code>message</code> 是父组件传递给子组件的属性，<code>parentMessage</code> 是父组件定义的一个常量，子组件接收之后，调用属性直接渲染，<code>&lt;p&gt;&#123;&#123; message &#125;&#125;&lt;/p&gt;</code></p>
+<p>代码部分：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs vue">&lt;template&gt;<br>  &lt;div&gt;<br>    &lt;h1&gt;父组件&lt;/h1&gt;<br>    &lt;child-component :message=&quot;parentMessage&quot; @increment=&quot;incrementCount&quot; /&gt;<br>    &lt;p&gt;当前计数: &#123;&#123; count &#125;&#125;&lt;/p&gt;<br>  &lt;/div&gt;<br>&lt;/template&gt;<br><br>&lt;script lang=&quot;ts&quot; setup&gt;<br>import &#123; ref &#125; from &#x27;vue&#x27;;<br>import ChildComponent from &#x27;./ChildComponent.vue&#x27;;<br><br>const parentMessage = &#x27;Hello from Parent!&#x27;;<br>const count = ref(0);<br><br>const incrementCount = () =&gt; &#123;<br>  count.value++;<br>&#125;;<br>&lt;/script&gt;<br><br>&lt;style&gt;<br><br>&lt;/style&gt;<br></code></pre></td></tr></table></figure>
 
 <p>逻辑说明：</p>
@@ -317,7 +320,10 @@
 <li><strong>响应式数据</strong>：使用 <code>ref</code> 定义一个响应式的计数 <code>count</code> 和一个常量 <code>parentMessage</code></li>
 <li><strong>事件监听</strong>：通过 <code>@increment</code> 监听子组件发出的 <code>increment</code> 事件，并调用 <code>incrementCount</code> 方法</li>
 </ul>
-<h3 id="子组件-child-component"><a href="#子组件-child-component" class="headerlink" title="子组件 child-component"></a>子组件 child-component</h3><p>代码部分：</p>
+<h3 id="子组件-child-component"><a href="#子组件-child-component" class="headerlink" title="子组件 child-component"></a>子组件 child-component</h3><p>定义一个增加计数的方法 <code>increment</code>  然后定义 <code>emit</code> 发出事件，在 <code>increment</code>  方法中向父组件 发出更新计数的通知 <code>emit(&#39;increment&#39;)</code> 来通知父组件 更新计数，父组件则通过子组件发过来的通知 调用 <code>incrementCount</code>  方法 。</p>
+<p>注意：子传父 语法：<code>@increment=&quot;incrementCount&quot;</code> </p>
+<p><code>increment</code> 是子组件发出的通知，<code>incrementCount</code> 是调用父组件的哪个方法，即方法名 </p>
+<p>代码部分：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><code class="hljs vue">&lt;template&gt;<br>  &lt;div&gt;<br>    &lt;h2&gt;子组件&lt;/h2&gt;<br>    &lt;p&gt;&#123;&#123; message &#125;&#125;&lt;/p&gt;<br>    &lt;button @click=&quot;increment&quot;&gt;增加计数&lt;/button&gt;<br>  &lt;/div&gt;<br>&lt;/template&gt;<br><br>&lt;script lang=&quot;ts&quot; setup&gt;<br>import &#123; defineProps, defineEmits &#125; from &#x27;vue&#x27;;<br><br>// 定义接收的属性<br>const props = defineProps&lt;&#123;<br>  message: string;<br>&#125;&gt;();<br><br>// 定义发出的事件<br>const emit = defineEmits([&quot;increment&quot;]);<br><br>// 增加计数的方法<br>const increment = () =&gt; &#123;<br>  emit(&#x27;increment&#x27;);<br>&#125;;<br>&lt;/script&gt;<br><br>&lt;style&gt;<br><br>&lt;/style&gt;<br></code></pre></td></tr></table></figure>
 
 <p>逻辑说明：</p>
@@ -411,7 +417,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>更新于</div>
-          <div>2024年11月5日</div>
+          <div>2024年12月5日</div>
         </div>
       
       
