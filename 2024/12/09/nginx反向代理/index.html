@@ -28,7 +28,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://kitenx.github.io/huyanqun.github.io/img/blogsCom.jpg">
 <meta property="article:published_time" content="2024-12-09T03:41:46.000Z">
-<meta property="article:modified_time" content="2024-12-09T05:44:14.197Z">
+<meta property="article:modified_time" content="2024-12-09T05:47:20.054Z">
 <meta property="article:author" content="胡燕群">
 <meta property="article:tag" content="Vue">
 <meta name="twitter:card" content="summary_large_image">
@@ -310,8 +310,8 @@
               <div class="markdown-body">
                 
                 <p>在使用 nginx 进行反向代理时，可以将它作为中间层，用于代理客户端请求到后端服务，同时提升性能、支持负载均衡以及增强安全性</p>
-<h3 id="nginx官方文档"><a href="#nginx官方文档" class="headerlink" title="nginx官方文档"></a>nginx官方文档</h3><p><a href="https://gitee.com/link?target=http://nginx.org">http://nginx.org</a></p>
-<h3 id="下载地址"><a href="#下载地址" class="headerlink" title="下载地址"></a>下载地址</h3><p><a href="https://gitee.com/link?target=http://nginx.org/en/download.html">http://nginx.org/en/download.html</a></p>
+<h3 id="nginx官方文档"><a href="#nginx官方文档" class="headerlink" title="nginx官方文档"></a>nginx官方文档</h3><p><a target="_blank" rel="noopener" href="http://nginx.org/">http://nginx.org</a></p>
+<h3 id="下载地址"><a href="#下载地址" class="headerlink" title="下载地址"></a>下载地址</h3><p><a target="_blank" rel="noopener" href="http://nginx.org/en/download.html">http://nginx.org/en/download.html</a></p>
 <h3 id="centos-安装-nginx"><a href="#centos-安装-nginx" class="headerlink" title="centos 安装 nginx"></a>centos 安装 nginx</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 安装基础库</span><br>yum install gcc gcc-c++<br>yum install -y pcre pcre-devel<br>yum install -y zlib zlib-devel<br>yum install -y openssl openssl-devel<br><br><span class="hljs-comment"># 下载nginx</span><br><span class="hljs-built_in">cd</span> /usr/local<br>wget http://nginx.org/download/nginx-1.22.1.tar.gz<br><br><span class="hljs-comment"># 解压</span><br>tar -zxvf nginx-1.22.1.tar.gz<br><span class="hljs-built_in">cd</span> ./nginx-1.22.1<br><br><span class="hljs-comment"># 初始化配置，添加ssl模块</span><br>./configure --with-http_ssl_module<br><br><span class="hljs-comment"># 编译源码</span><br>make<br><span class="hljs-comment"># 安装</span><br>make install<br></code></pre></td></tr></table></figure>
 
 <ul>
