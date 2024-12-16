@@ -19,16 +19,16 @@
   <meta name="author" content="胡燕群">
   <meta name="keywords" content="">
   
-    <meta name="description" content="在使用 nginx 进行反向代理时，可以将它作为中间层，用于代理客户端请求到后端服务，同时提升性能、支持负载均衡以及增强安全性 nginx官方文档http:&#x2F;&#x2F;nginx.org 下载地址http:&#x2F;&#x2F;nginx.org&#x2F;en&#x2F;download.html centos 安装 nginx123456789101112131415161718192021# 安装基础库yum install gcc g">
+    <meta name="description" content="Vue 纯前端实现滑块拼图验证码（基于Vue3的）  滑块拼图这一块是纯前端的 不涉及后端 但是登录接口是需要后端的   官网：vue3-puzzle-vcode - npm 安装： 1npm install vue3-puzzle-vcode --save  示例 123456789101112131415161718192021222324252627282930313233343536373">
 <meta property="og:type" content="article">
-<meta property="og:title" content="nginx反向代理">
-<meta property="og:url" content="https://kitenx.github.io/huyanqun.github.io/2024/12/09/nginx%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/index.html">
+<meta property="og:title" content="vue3-puzzle-vcode">
+<meta property="og:url" content="https://kitenx.github.io/huyanqun.github.io/2024/12/16/vue3-puzzle-vcode/index.html">
 <meta property="og:site_name" content="XH日常">
-<meta property="og:description" content="在使用 nginx 进行反向代理时，可以将它作为中间层，用于代理客户端请求到后端服务，同时提升性能、支持负载均衡以及增强安全性 nginx官方文档http:&#x2F;&#x2F;nginx.org 下载地址http:&#x2F;&#x2F;nginx.org&#x2F;en&#x2F;download.html centos 安装 nginx123456789101112131415161718192021# 安装基础库yum install gcc g">
+<meta property="og:description" content="Vue 纯前端实现滑块拼图验证码（基于Vue3的）  滑块拼图这一块是纯前端的 不涉及后端 但是登录接口是需要后端的   官网：vue3-puzzle-vcode - npm 安装： 1npm install vue3-puzzle-vcode --save  示例 123456789101112131415161718192021222324252627282930313233343536373">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://kitenx.github.io/huyanqun.github.io/img/blogsCom.jpg">
-<meta property="article:published_time" content="2024-12-09T03:41:46.000Z">
-<meta property="article:modified_time" content="2024-12-09T05:47:20.054Z">
+<meta property="article:published_time" content="2024-12-16T08:26:32.000Z">
+<meta property="article:modified_time" content="2024-12-16T09:03:31.957Z">
 <meta property="article:author" content="胡燕群">
 <meta property="article:tag" content="Vue">
 <meta name="twitter:card" content="summary_large_image">
@@ -36,7 +36,7 @@
   
   
   
-  <title>nginx反向代理 - XH日常</title>
+  <title>vue3-puzzle-vcode - XH日常</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -220,7 +220,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="nginx反向代理"></span>
+            <span id="subtitle" data-typed-text="vue3-puzzle-vcode"></span>
           
         </div>
 
@@ -236,8 +236,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-12-09 11:41" pubdate>
-          2024年12月9日 中午
+        <time datetime="2024-12-16 16:26" pubdate>
+          2024年12月16日 下午
         </time>
       </span>
     
@@ -248,7 +248,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          499 字
+          754 字
         
       </span>
     
@@ -259,7 +259,7 @@
         
         
         
-          5 分钟
+          7 分钟
         
       </span>
     
@@ -296,12 +296,12 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">nginx反向代理</h1>
+            <h1 id="seo-header">vue3-puzzle-vcode</h1>
             
               <p id="updated-time" class="note note-info" style="">
                 
                   
-                    本文最后更新于 2024年12月9日 下午
+                    本文最后更新于 2024年12月16日 下午
                   
                 
               </p>
@@ -309,24 +309,26 @@
             
               <div class="markdown-body">
                 
-                <p>在使用 nginx 进行反向代理时，可以将它作为中间层，用于代理客户端请求到后端服务，同时提升性能、支持负载均衡以及增强安全性</p>
-<h3 id="nginx官方文档"><a href="#nginx官方文档" class="headerlink" title="nginx官方文档"></a>nginx官方文档</h3><p><a target="_blank" rel="noopener" href="http://nginx.org/">http://nginx.org</a></p>
-<h3 id="下载地址"><a href="#下载地址" class="headerlink" title="下载地址"></a>下载地址</h3><p><a target="_blank" rel="noopener" href="http://nginx.org/en/download.html">http://nginx.org/en/download.html</a></p>
-<h3 id="centos-安装-nginx"><a href="#centos-安装-nginx" class="headerlink" title="centos 安装 nginx"></a>centos 安装 nginx</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 安装基础库</span><br>yum install gcc gcc-c++<br>yum install -y pcre pcre-devel<br>yum install -y zlib zlib-devel<br>yum install -y openssl openssl-devel<br><br><span class="hljs-comment"># 下载nginx</span><br><span class="hljs-built_in">cd</span> /usr/local<br>wget http://nginx.org/download/nginx-1.22.1.tar.gz<br><br><span class="hljs-comment"># 解压</span><br>tar -zxvf nginx-1.22.1.tar.gz<br><span class="hljs-built_in">cd</span> ./nginx-1.22.1<br><br><span class="hljs-comment"># 初始化配置，添加ssl模块</span><br>./configure --with-http_ssl_module<br><br><span class="hljs-comment"># 编译源码</span><br>make<br><span class="hljs-comment"># 安装</span><br>make install<br></code></pre></td></tr></table></figure>
+                <p><strong>Vue 纯前端</strong>实现滑块拼图验证码（基于Vue3的）</p>
+<blockquote>
+<p>滑块拼图这一块是纯前端的 不涉及后端 但是登录接口是需要后端的 </p>
+</blockquote>
+<p>官网：<a target="_blank" rel="noopener" href="https://www.npmjs.com/package/vue3-puzzle-vcode?activeTab=readme">vue3-puzzle-vcode - npm</a></p>
+<p>安装：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">npm install vue3-puzzle-vcode --save<br></code></pre></td></tr></table></figure>
 
+<p>示例</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br></pre></td><td class="code"><pre><code class="hljs vue">&lt;template&gt;<br>  &lt;div class=&quot;login&quot;&gt;<br>    &lt;div class=&quot;login-content&quot;&gt;<br>      &lt;div class=&quot;login-form&quot;&gt;<br>        &lt;el-form ref=&quot;loginFormRef&quot; :model=&quot;loginData&quot; :rules=&quot;loginRules&quot;&gt;<br>          &lt;div class=&quot;form-title&quot;&gt;<br>            &lt;h2&gt;登录&lt;/h2&gt;<br>          &lt;/div&gt;<br><br>          &lt;!-- 用户名 --&gt;<br>          &lt;el-form-item prop=&quot;username&quot;&gt;<br>            &lt;div class=&quot;input-wrapper&quot;&gt;<br>              &lt;el-icon class=&quot;mx-2&quot;&gt;<br>                &lt;User /&gt;<br>              &lt;/el-icon&gt;<br>              &lt;el-input<br>                ref=&quot;username&quot;<br>                v-model=&quot;loginData.username&quot;<br>                placeholder=&quot;请输入用户名&quot;<br>                name=&quot;username&quot;<br>                size=&quot;large&quot;<br>                class=&quot;h-[48px]&quot;<br>              /&gt;<br>            &lt;/div&gt;<br>          &lt;/el-form-item&gt;<br><br>          &lt;!-- 密码 --&gt;<br>          &lt;el-tooltip<br>            :visible=&quot;isCapslock&quot;<br>            content=&quot;大写锁定已打开&quot;<br>            placement=&quot;right&quot;<br>          &gt;<br>            &lt;el-form-item prop=&quot;password&quot;&gt;<br>              &lt;div class=&quot;input-wrapper&quot;&gt;<br>                &lt;el-icon class=&quot;mx-2&quot;&gt;<br>                  &lt;Lock /&gt;<br>                &lt;/el-icon&gt;<br>                &lt;el-input<br>                  v-model=&quot;loginData.password&quot;<br>                  placeholder=&quot;请输入密码&quot;<br>                  type=&quot;password&quot;<br>                  name=&quot;password&quot;<br>                  size=&quot;large&quot;<br>                  class=&quot;h-[48px] pr-2&quot;<br>                  show-password<br>                  @keyup.enter=&quot;handleLoginSubmit&quot;<br>                /&gt;<br>              &lt;/div&gt;<br>            &lt;/el-form-item&gt;<br>          &lt;/el-tooltip&gt;<br><br>          &lt;!-- 滑块验证码 --&gt;<br>          &lt;Vcode :show=&quot;isShow&quot; @success=&quot;onSuccess&quot; @close=&quot;onClose&quot; /&gt;<br><br>          &lt;div class=&quot;flex-x-between w-full py-1&quot;&gt;<br>            &lt;el-checkbox&gt; 记住我 &lt;/el-checkbox&gt;<br><br>            &lt;el-link type=&quot;primary&quot; href=&quot;/forget-password&quot;&gt; 忘记密码 &lt;/el-link&gt;<br>          &lt;/div&gt;<br><br>          &lt;!-- 登录按钮 --&gt;<br>          &lt;el-button<br>            :loading=&quot;loading&quot;<br>            type=&quot;primary&quot;<br>            size=&quot;large&quot;<br>            class=&quot;w-full&quot;<br>            @click.prevent=&quot;handleLoginSubmit&quot;<br>          &gt;<br>            登录<br>          &lt;/el-button&gt;<br>        &lt;/el-form&gt;<br>      &lt;/div&gt;<br>    &lt;/div&gt;<br>  &lt;/div&gt;<br>&lt;/template&gt;<br><br>&lt;script setup lang=&quot;ts&quot;&gt;<br>import loginApi from &quot;@/api/login&quot;<br>import type &#123; FormInstance &#125; from &quot;element-plus&quot;;<br><br><br>import Vcode from &quot;vue3-puzzle-vcode&quot;;<br><br>const isShow = ref(false);<br>const onClose = () =&gt; &#123;<br>  isShow.value = false;<br>&#125;;<br><br>const onSuccess = () =&gt; &#123;<br>  onClose(); // 验证成功，手动关闭模态框<br>  // 调用登录接口发送登录请求<br>  loading.value = true;<br>    loginApi.login(loginData.value)<br>    .then(async () =&gt; &#123;<br>      ElMessage(&#123;<br>        message: &quot;登录成功&quot;,<br>        type: &quot;success&quot;,<br>      &#125;);<br>    &#125;)<br>    .catch(() =&gt; &#123;<br>      ElMessage(&#123;<br>        message: &quot;登录失败请重试&quot;,<br>        type: &quot;error&quot;,<br>      &#125;);<br>    &#125;)<br>    .finally(() =&gt; &#123;<br>      loading.value = false;<br>    &#125;);<br>&#125;;<br><br>const loginFormRef = ref&lt;FormInstance&gt;();<br><br>const loading = ref(false); // 按钮 loading 状态<br>const isCapslock = ref(false); // 是否大写锁定<br><br>const loginData = ref(&#123;<br>  username: &quot;admin&quot;,<br>  password: &quot;123456&quot;,<br>&#125;);<br><br>const loginRules = computed(() =&gt; &#123;<br>  return &#123;<br>    username: [<br>      &#123;<br>        required: true,<br>        trigger: &quot;blur&quot;,<br>        message: &quot;请输入用户名&quot;,<br>      &#125;,<br>    ],<br>    password: [<br>      &#123;<br>        required: true,<br>        trigger: &quot;blur&quot;,<br>        message: &quot;请输入密码&quot;,<br>      &#125;,<br>      &#123;<br>        min: 6,<br>        message: &quot;密码不能少于6位&quot;,<br>        trigger: &quot;blur&quot;,<br>      &#125;,<br>    ],<br>  &#125;;<br>&#125;);<br>// 登录方法<br>async function handleLoginSubmit() &#123;<br>  loginFormRef.value?.validate((valid: boolean) =&gt; &#123;<br>    if (valid) &#123;<br>      isShow.value = true;<br>    &#125;<br>  &#125;);<br>&#125;<br>&lt;/script&gt;<br><br></code></pre></td></tr></table></figure>
+
+<p>注意：</p>
 <ul>
-<li><p>如果没有进入cd &#x2F;usr&#x2F;local 这个目录 在别的地方安装的 nginx也会出现在这个目录（usr&#x2F;local&#x2F;nginx）因为这个是默认目录</p>
-</li>
-<li><p>–with-http_ssl_module  这个模块可添加也可不添加，如果不添加那么直接执行 .&#x2F;configure</p>
-</li>
+<li>loginApi 外部导入的接口里面有登录login方法</li>
+<li>点击登录触发handleLoginSubmit方法，然后打开滑块拼图验证码</li>
+<li>验证通过之后调用登录login接口，会有验证 如果账号密码不正确一样会登录失败</li>
+<li>账号密码正确，滑块验证通过，才会登录成功</li>
 </ul>
-<h3 id="nginx-常用命令"><a href="#nginx-常用命令" class="headerlink" title="nginx 常用命令"></a>nginx 常用命令</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># nginx 安装目录 /usr/local/nginx/sbin 下执行</span><br><span class="hljs-comment"># 启动</span><br>./nginx<br><span class="hljs-comment"># 热重载(重启)</span><br>./nginx -s reload<br><span class="hljs-comment"># 停止</span><br>./nginx -s stop<br></code></pre></td></tr></table></figure>
-
-<h3 id="项目部署"><a href="#项目部署" class="headerlink" title="项目部署"></a>项目部署</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 项目打包</span><br>pnpm run build<br><span class="hljs-comment"># 上传文件至远程服务器</span><br>将打包生成在 `dist` 目录文件拷贝至 `/usr/local/nginx/html` 目录<br><span class="hljs-comment"># nginx.cofig 配置</span><br>server &#123;<br>	listen     80;<br>	server_name  localhost;<br>	<span class="hljs-comment"># 前端页面</span><br>	location / &#123;<br>			root /usr/local/nginx/html/dist;<br>            index index.html index.htm;<br>	&#125;<br>	<span class="hljs-comment"># 反向代理配置</span><br>	location /prod-api/ &#123;<br>      <span class="hljs-comment">#  替换后端API地址，注意保留后面的斜杠 /</span><br>      <span class="hljs-comment">#  例如：http://xxx.xxx.com/;</span><br>      <span class="hljs-comment">#  47.119.148.36 这个是云服务公网IP</span><br>      <span class="hljs-comment">#  8999 这个是后端端口，端口需要在安全组里面开通</span><br>      proxy_pass http://47.119.148.36:8999/;<br>      proxy_set_header Host <span class="hljs-variable">$host</span>;<br>      proxy_set_header X-Real-IP <span class="hljs-variable">$remote_addr</span>;<br>      proxy_set_header X-Forwarded-For <span class="hljs-variable">$proxy_add_x_forwarded_for</span>;<br>      proxy_set_header X-Forwarded-Proto <span class="hljs-variable">$scheme</span>; <br>	&#125;<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<h3 id="nginx-cofig-完整配置"><a href="#nginx-cofig-完整配置" class="headerlink" title="nginx.cofig 完整配置"></a>nginx.cofig 完整配置</h3><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><code class="hljs nginx"><br><span class="hljs-comment">#user  nobody;</span><br><span class="hljs-attribute">worker_processes</span>  <span class="hljs-number">1</span>;<br><br><span class="hljs-comment">#error_log  logs/error.log;</span><br><span class="hljs-comment">#error_log  logs/error.log  notice;</span><br><span class="hljs-comment">#error_log  logs/error.log  info;</span><br><br><span class="hljs-comment">#pid        logs/nginx.pid;</span><br><br><br><span class="hljs-section">events</span> &#123;<br>    <span class="hljs-attribute">worker_connections</span>  <span class="hljs-number">1024</span>;<br>&#125;<br><br><br><span class="hljs-section">http</span> &#123;<br>    <span class="hljs-attribute">include</span>       mime.types;<br>    <span class="hljs-attribute">default_type</span>  application/octet-stream;<br><br>    <span class="hljs-comment">#log_format  main  &#x27;$remote_addr - $remote_user [$time_local] &quot;$request&quot; &#x27;</span><br>    <span class="hljs-comment">#                  &#x27;$status $body_bytes_sent &quot;$http_referer&quot; &#x27;</span><br>    <span class="hljs-comment">#                  &#x27;&quot;$http_user_agent&quot; &quot;$http_x_forwarded_for&quot;&#x27;;</span><br><br>    <span class="hljs-comment">#access_log  logs/access.log  main;</span><br><br>    <span class="hljs-attribute">sendfile</span>        <span class="hljs-literal">on</span>;<br>    <span class="hljs-comment">#tcp_nopush     on;</span><br><br>    <span class="hljs-comment">#keepalive_timeout  0;</span><br>    <span class="hljs-attribute">keepalive_timeout</span>  <span class="hljs-number">65</span>;<br><br>    <span class="hljs-comment">#gzip  on;</span><br><br>    <span class="hljs-section">server</span> &#123;<br>        <span class="hljs-attribute">listen</span>       <span class="hljs-number">80</span>;<br>        <span class="hljs-attribute">server_name</span> localhost;<br><br>        <span class="hljs-comment"># 前端页面</span><br>        <span class="hljs-section">location</span> / &#123;<br>            <span class="hljs-attribute">root</span> /usr/local/nginx/html/dist;<br>            <span class="hljs-attribute">index</span> index.html index.htm;<br>        &#125;<br>        <br>        <span class="hljs-comment"># 后端反向代理</span><br>        <span class="hljs-section">location</span> /prod-api/ &#123;<br>            <span class="hljs-attribute">proxy_pass</span> http://47.119.148.36:8999/;<br>            <span class="hljs-attribute">proxy_set_header</span> Host <span class="hljs-variable">$host</span>;<br>            <span class="hljs-attribute">proxy_set_header</span> X-Real-IP <span class="hljs-variable">$remote_addr</span>;<br>            <span class="hljs-attribute">proxy_set_header</span> X-Forwarded-For <span class="hljs-variable">$proxy_add_x_forwarded_for</span>;<br>            <span class="hljs-attribute">proxy_set_header</span> X-Forwarded-Proto <span class="hljs-variable">$scheme</span>;<br>        &#125;<br><br>    &#125;<br><br>&#125;<br></code></pre></td></tr></table></figure>
-
-
+<p>图片展示</p>
+<img src="211.png" srcset="/huyanqun.github.io/img/loading.gif" lazyload />
                 
               </div>
             
@@ -371,8 +373,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>nginx反向代理</div>
-      <div>https://kitenx.github.io/huyanqun.github.io/2024/12/09/nginx反向代理/</div>
+      <div>vue3-puzzle-vcode</div>
+      <div>https://kitenx.github.io/huyanqun.github.io/2024/12/16/vue3-puzzle-vcode/</div>
     </div>
     <div class="license-meta">
       
@@ -384,13 +386,13 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2024年12月9日</div>
+          <div>2024年12月16日</div>
         </div>
       
       
         <div class="license-meta-item license-meta-date">
           <div>更新于</div>
-          <div>2024年12月9日</div>
+          <div>2024年12月16日</div>
         </div>
       
       
@@ -421,18 +423,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/huyanqun.github.io/2024/12/16/vue3-puzzle-vcode/" title="vue3-puzzle-vcode">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">vue3-puzzle-vcode</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/huyanqun.github.io/2024/12/05/pinia%E6%A8%A1%E5%9D%97%E5%8C%96/" title="pinia模块化">
-                        <span class="hidden-mobile">pinia模块化</span>
+                      <a href="/huyanqun.github.io/2024/12/09/nginx%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/" title="nginx反向代理">
+                        <span class="hidden-mobile">nginx反向代理</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
