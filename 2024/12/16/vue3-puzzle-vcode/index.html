@@ -28,7 +28,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://kitenx.github.io/huyanqun.github.io/img/blogsCom.jpg">
 <meta property="article:published_time" content="2024-12-16T08:26:32.000Z">
-<meta property="article:modified_time" content="2024-12-16T09:39:32.314Z">
+<meta property="article:modified_time" content="2024-12-17T01:21:44.720Z">
 <meta property="article:author" content="胡燕群">
 <meta property="article:tag" content="Vue">
 <meta name="twitter:card" content="summary_large_image">
@@ -248,7 +248,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.5k 字
+          1.6k 字
         
       </span>
     
@@ -259,7 +259,7 @@
         
         
         
-          13 分钟
+          14 分钟
         
       </span>
     
@@ -301,7 +301,7 @@
               <p id="updated-time" class="note note-info" style="">
                 
                   
-                    本文最后更新于 2024年12月16日 下午
+                    本文最后更新于 2024年12月17日 上午
                   
                 
               </p>
@@ -331,9 +331,11 @@
 
 <h3 id="自定义图片"><a href="#自定义图片" class="headerlink" title="自定义图片"></a>自定义图片</h3><p>通过 <code>imgs</code> 属性传递图片数组，可以为滑动拼图验证码设置自定义图片</p>
 <p>示例：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><code class="hljs vue">&lt;template&gt;<br>  &lt;Vcode<br>    :show=&quot;true&quot;<br>    :imgs=&quot;customImages&quot;<br>    canvasWidth=&quot;400&quot;<br>    canvasHeight=&quot;200&quot;<br>    successText=&quot;Great! Verification Passed&quot;<br>    failText=&quot;Oops! Try Again&quot;<br>    className=&quot;my-custom-class&quot;<br>    :zIndex=&quot;1000&quot;<br>    @success=&quot;onSuccess&quot;<br>    @fail=&quot;onFail&quot;<br>  /&gt;<br>&lt;/template&gt;<br><br>&lt;script lang=&quot;ts&quot; setup&gt;<br>// 滑块验证码插件<br>import Vcode from &quot;vue3-puzzle-vcode&quot;;<br><br>import img01 from &quot;@/assets/images/excel.png&quot;;<br>import img02 from &quot;@/assets/images/exe.png&quot;;<br><br>const imgs = [img01, img02];<br><br>// 控制滑块验证码显示<br>const isShow = ref(false);<br><br>onSuccess() &#123;<br>  console.log(&#x27;验证通过！&#x27;);<br>&#125;,<br>onFail() &#123;<br>  console.log(&#x27;验证失败，请重试！&#x27;);<br>&#125;,<br>  <br>&lt;/script&gt;<br><br>&lt;style&gt;<br>/* 自定义样式 */<br>.my-custom-class &#123;<br>  border: 2px solid #007aff;<br>  border-radius: 8px;<br>  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);<br>&#125;<br>&lt;/style&gt;<br><br></code></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><code class="hljs vue">&lt;template&gt;<br>  &lt;Vcode<br>    :show=&quot;true&quot;<br>    :imgs=&quot;imgs&quot;<br>    canvasWidth=&quot;400&quot;<br>    canvasHeight=&quot;200&quot;<br>    successText=&quot;Great! Verification Passed&quot;<br>    failText=&quot;Oops! Try Again&quot;<br>    className=&quot;my-custom-class&quot;<br>    :zIndex=&quot;1000&quot;<br>    @success=&quot;onSuccess&quot;<br>    @fail=&quot;onFail&quot;<br>  /&gt;<br>&lt;/template&gt;<br><br>&lt;script lang=&quot;ts&quot; setup&gt;<br>// 滑块验证码插件<br>import Vcode from &quot;vue3-puzzle-vcode&quot;;<br><br>import img01 from &quot;@/assets/images/img01.png&quot;;<br>import img02 from &quot;@/assets/images/img02.png&quot;;<br><br>const imgs = ref([img01, img02]);<br><br>// 控制滑块验证码显示<br>const isShow = ref(false);<br><br>onSuccess() &#123;<br>  console.log(&#x27;验证通过！&#x27;);<br>&#125;,<br>onFail() &#123;<br>  console.log(&#x27;验证失败，请重试！&#x27;);<br>&#125;,<br>  <br>&lt;/script&gt;<br><br>&lt;style&gt;<br>/* 自定义样式 */<br>.my-custom-class &#123;<br>  border: 2px solid #007aff;<br>  border-radius: 8px;<br>  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);<br>&#125;<br>&lt;/style&gt;<br><br></code></pre></td></tr></table></figure>
 
-<h3 id="设置拼图尺寸"><a href="#设置拼图尺寸" class="headerlink" title="设置拼图尺寸"></a>设置拼图尺寸</h3><p>调整拼图区域和拼图块大小，可以通过修改 <code>canvasWidth</code>, <code>canvasHeight</code>, 和 <code>puzzleScale</code> 来实现</p>
+<h3 id="设置拼图尺寸"><a href="#设置拼图尺寸" class="headerlink" title="设置拼图尺寸"></a>设置拼图尺寸</h3><p>调整拼图区域和拼图块大小，可以通过修改 <code>canvasWidth</code>, <code>canvasHeight</code>, 和 <code>puzzleScale</code> 来实现。</p>
+<p><code>canvasWidth</code> 默认值 <code>310px</code>，<code>canvasHeight</code> 默认值 <code>160px</code></p>
+<p><code>puzzleScale</code> 拼图块的大小比例，0.2 ～ 2 ，数字越大，拼图越大，<code>默认值 1</code></p>
 <p>示例：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs vue">&lt;Vcode<br>  :canvasWidth=&quot;350&quot;<br>  :canvasHeight=&quot;180&quot;<br>  :puzzleScale=&quot;1.5&quot;<br>  :sliderSize=&quot;60&quot;<br>  @success=&quot;onSuccess&quot;<br>/&gt;<br></code></pre></td></tr></table></figure>
 
@@ -342,22 +344,27 @@
 </li>
 <li><p><strong>puzzleScale</strong>: 拼图块大小比例，设置为 <code>1.5</code> 会使拼图块更大</p>
 </li>
-<li><p><strong>sliderSize</strong>: 调整滑块的尺寸，例如 <code>60px</code></p>
+<li><p><strong>sliderSize</strong>: 调整滑块的尺寸，例如 <code>60px</code>  ，默认值 <code>50px</code></p>
 </li>
 </ul>
 <h3 id="设置文字提示"><a href="#设置文字提示" class="headerlink" title="设置文字提示"></a>设置文字提示</h3><p>可以自定义成功、失败和滑动提示文字，方便多语言或特定场景的定制</p>
 <p>示例：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs vue">&lt;Vcode<br>  successText=&quot;You did it!&quot;<br>  failText=&quot;Please try again.&quot;<br>  sliderText=&quot;Slide to fit the puzzle piece&quot;<br>/&gt;<br></code></pre></td></tr></table></figure>
 
-<h3 id="改变显示形式"><a href="#改变显示形式" class="headerlink" title="改变显示形式"></a>改变显示形式</h3><p>通过 <code>type</code> 属性可以切换展示形式：</p>
 <ul>
-<li><code>&quot;modal&quot;</code>: 模态框，居中弹出。</li>
-<li><code>&quot;inside&quot;</code>: 内嵌到页面的某一部分</li>
+<li><code>successText</code>：验证成功时的提示文字，默认值 <code>验证通过</code></li>
+<li><code>failText</code>：验证失败时的提示文字，默认值 <code>验证失败，请重试</code></li>
+<li><code>sliderText</code>：下方滑动条里的文字，默认值 <code>拖动滑块完成拼图</code></li>
+</ul>
+<h3 id="改变显示形式"><a href="#改变显示形式" class="headerlink" title="改变显示形式"></a>改变显示形式</h3><p>通过 <code>type</code> 属性可以切换展示形式，默认是 <code>modal </code>形式 ：</p>
+<ul>
+<li><code>modal</code>: 模态框，居中弹出</li>
+<li><code>inside</code>: 内嵌到页面的某一部分</li>
 </ul>
 <p>示例：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs vue">&lt;!-- 模态框形式 --&gt;<br>&lt;Vcode type=&quot;modal&quot; :show=&quot;showCaptcha&quot; @close=&quot;closeCaptcha&quot; /&gt;<br><br>&lt;!-- 内嵌形式 --&gt;<br>&lt;Vcode type=&quot;inside&quot; /&gt;<br></code></pre></td></tr></table></figure>
 
-<h3 id="调整样式层级"><a href="#调整样式层级" class="headerlink" title="调整样式层级"></a>调整样式层级</h3><p>可以通过 <code>zIndex</code> 属性调整验证码弹框的样式层级，避免与其他页面元素冲突</p>
+<h3 id="调整样式层级"><a href="#调整样式层级" class="headerlink" title="调整样式层级"></a>调整样式层级</h3><p>可以通过 <code>zIndex</code> 属性调整验证码弹框的样式层级，避免与其他页面元素冲突，默认值 <code>999</code></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs vue">&lt;Vcode<br>  type=&quot;modal&quot;<br>  :zIndex=&quot;1050&quot;<br>/&gt;<br></code></pre></td></tr></table></figure>
 
 <h3 id="捕获事件"><a href="#捕获事件" class="headerlink" title="捕获事件"></a>捕获事件</h3><p>通过事件处理成功、失败等状态：</p>
@@ -446,7 +453,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>更新于</div>
-          <div>2024年12月16日</div>
+          <div>2024年12月17日</div>
         </div>
       
       
