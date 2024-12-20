@@ -28,7 +28,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://kitenx.github.io/huyanqun.github.io/img/blogsCom.jpg">
 <meta property="article:published_time" content="2024-12-19T09:05:41.000Z">
-<meta property="article:modified_time" content="2024-12-20T02:56:12.886Z">
+<meta property="article:modified_time" content="2024-12-20T08:44:43.613Z">
 <meta property="article:author" content="胡燕群">
 <meta property="article:tag" content="文件管理工具">
 <meta name="twitter:card" content="summary_large_image">
@@ -248,7 +248,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          962 字
+          1.1k 字
         
       </span>
     
@@ -301,7 +301,7 @@
               <p id="updated-time" class="note note-info" style="">
                 
                   
-                    本文最后更新于 2024年12月20日 上午
+                    本文最后更新于 2024年12月20日 下午
                   
                 
               </p>
@@ -314,7 +314,7 @@
 <p>手动下载：<a target="_blank" rel="noopener" href="https://github.com/filebrowser/filebrowser/releases/latest">https://github.com/filebrowser/filebrowser/releases/latest</a></p>
 <p>如果是手动下载的，那么要上传到 Linux 服务器上面 ，然后解压</p>
 <p>直接下载：</p>
-<figure class="highlight nsis"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs nsis"><span class="hljs-comment"># 下载</span><br><span class="hljs-comment"># 这里下载 amd64(X86-64) 2.18.0 版本</span><br>wget https://github.com/filebrowser/filebrowser/releases/download/v2.<span class="hljs-number">18.0</span>/linux-amd64-filebrowser.tar.gz<br><span class="hljs-comment"># 解压</span><br><span class="hljs-comment"># 解压到当前目录下</span><br>tar -xvf linux-amd64-filebrowser.tar.gz<br><span class="hljs-comment"># 解压到你指定的目录，比如这里的 /opt/filebrowser</span><br>tar -xvf linux-amd64-filebrowser.tar.gz -C /opt/filebrowser<br><br><span class="hljs-comment"># or </span><br>curl -fsSL https://raw.githubusercontent.com/filebrowser/get/master/get.sh | bash<br><span class="hljs-comment"># 出现 `curl: command not found` 报错就是系统没有安装 curl，请先安装再来执行命令。</span><br><span class="hljs-comment"># Debian 系安装命令 `apt install curl -y`</span><br><span class="hljs-comment"># CentOS 系安装命令 `yum install curl -y`</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight nsis"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs nsis"><span class="hljs-comment"># 下载</span><br><span class="hljs-comment"># 这里下载 amd64(X86-64) 2.18.0 版本</span><br>wget https://github.com/filebrowser/filebrowser/releases/download/v2.<span class="hljs-number">18.0</span>/linux-amd64-filebrowser.tar.gz<br><span class="hljs-comment"># 解压</span><br><span class="hljs-comment"># 解压到当前目录下</span><br>tar -xvf linux-amd64-filebrowser.tar.gz<br><span class="hljs-comment"># 解压到你指定的目录，比如这里的 /opt/filebrowser</span><br>tar -xvf linux-amd64-filebrowser.tar.gz -C /opt/filebrowser<br><br><span class="hljs-comment"># or </span><br>curl -fsSL https://raw.githubusercontent.com/filebrowser/get/master/get.sh | bash<br><span class="hljs-comment"># 出现 curl: command not found 报错就是系统没有安装 curl，请先安装再来执行命令。</span><br><span class="hljs-comment"># Debian 系安装命令 apt install curl -y</span><br><span class="hljs-comment"># CentOS 系安装命令 yum install curl -y</span><br></code></pre></td></tr></table></figure>
 
 <h3 id="初始化配置"><a href="#初始化配置" class="headerlink" title="初始化配置"></a>初始化配置</h3><p><strong>初始化：</strong>首先在 <code>/opt/filebrowser.db</code> 路径下（路径可以自行更改）创建数据库文件，并初始化 filebrowser 的配置。</p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs swift">filebrowser <span class="hljs-operator">-</span>d <span class="hljs-regexp">/opt/</span>filebrowser.db config <span class="hljs-keyword">init</span><br></code></pre></td></tr></table></figure>
@@ -362,10 +362,23 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 下载 filebrowser 版本 v2.31.2 的 tar.gz 文件</span><br>wget https://github.com/filebrowser/filebrowser/releases/download/v2.31.2/linux-amd64-filebrowser.tar.gz<br><br><span class="hljs-comment"># 解压</span><br>tar -xvzf linux-amd64-filebrowser.tar.gz<br><br><span class="hljs-comment"># 解压后，将解压出的 filebrowser 二进制文件替换系统中当前的版本。假设旧版本安装在 /usr/local/bin/</span><br><span class="hljs-comment"># 备份当前的 filebrowser 文件</span><br><span class="hljs-built_in">sudo</span> <span class="hljs-built_in">mv</span> /usr/local/bin/filebrowser /usr/local/bin/filebrowser.bak<br><br><span class="hljs-comment"># 移动新的文件到正确的目录</span><br><span class="hljs-built_in">sudo</span> <span class="hljs-built_in">mv</span> filebrowser /usr/local/bin/filebrowser<br><br><span class="hljs-comment"># 确保文件可执行</span><br><span class="hljs-built_in">sudo</span> <span class="hljs-built_in">chmod</span> +x /usr/local/bin/filebrowser<br><br><span class="hljs-comment"># 检查版本以确保升级成功 </span><br>filebrowser version<br><br><span class="hljs-comment"># 重启</span><br><span class="hljs-built_in">sudo</span> systemctl restart filebrowser<br></code></pre></td></tr></table></figure>
 
 <blockquote>
-<p>再次访问的时候会发现版本以及更新完毕了</p>
+<p>再次访问的时候会发现版本已经更新完毕了</p>
 </blockquote>
 <img src="530.png" srcset="/huyanqun.github.io/img/loading.gif" lazyload />
 
+<h3 id="开放端口"><a href="#开放端口" class="headerlink" title="开放端口"></a>开放端口</h3><p>服务器开放端口：</p>
+<img src="330.png" srcset="/huyanqun.github.io/img/loading.gif" lazyload />
+
+<p>虚拟机开放端口：</p>
+<p>示例：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 允许http服务</span><br><span class="hljs-built_in">sudo</span> firewall-cmd --add-service=http --permanent <br><br><span class="hljs-comment"># 打开 8088 端口</span><br><span class="hljs-built_in">sudo</span> firewall-cmd --add-port=8088/tcp --permanent<br><br><span class="hljs-comment"># 再次查看端口的开放情况</span><br><span class="hljs-built_in">sudo</span> firewall-cmd --reload<br><span class="hljs-built_in">sudo</span> firewall-cmd --list-all<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><p>命令末尾的 <code>–permanent</code> 表示永久有效，不加这句的话重启后刚才开放的端口就又失效了</p>
+</li>
+<li><p>发现 services: 里出现了 http 服务，ports：里也出现了 8088 端口</p>
+</li>
+</ul>
 
                 
               </div>
