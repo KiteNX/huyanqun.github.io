@@ -28,7 +28,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://kitenx.github.io/huyanqun.github.io/img/blogsCom.jpg">
 <meta property="article:published_time" content="2024-12-19T09:05:41.000Z">
-<meta property="article:modified_time" content="2024-12-19T09:50:28.454Z">
+<meta property="article:modified_time" content="2024-12-20T02:56:12.886Z">
 <meta property="article:author" content="胡燕群">
 <meta property="article:tag" content="文件管理工具">
 <meta name="twitter:card" content="summary_large_image">
@@ -248,7 +248,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          770 字
+          962 字
         
       </span>
     
@@ -259,7 +259,7 @@
         
         
         
-          7 分钟
+          9 分钟
         
       </span>
     
@@ -301,7 +301,7 @@
               <p id="updated-time" class="note note-info" style="">
                 
                   
-                    本文最后更新于 2024年12月19日 下午
+                    本文最后更新于 2024年12月20日 上午
                   
                 
               </p>
@@ -355,6 +355,16 @@
 
 <h3 id="域名访问"><a href="#域名访问" class="headerlink" title="域名访问"></a>域名访问</h3><p>如果 IP 已经绑定了域名，且已经申请了 SSL 证书，想开启 Https 访问</p>
 <figure class="highlight nsis"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs nsis"><span class="hljs-comment"># 证书文件路径：/opt/cert.pem</span><br><span class="hljs-comment"># 私钥文件路径：/opt/key.pem</span><br>filebrowser -d /opt/filebrowser.db config set --cert /opt/cert.pem --key /opt/key.pem<br></code></pre></td></tr></table></figure>
+
+<h3 id="版本更新"><a href="#版本更新" class="headerlink" title="版本更新"></a>版本更新</h3><p>之前是 2.18.0 版本 现在使用最新版 2.31.2</p>
+<p>可以手动下载之后上传服务器在解压</p>
+<p>也可以直接下载</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 下载 filebrowser 版本 v2.31.2 的 tar.gz 文件</span><br>wget https://github.com/filebrowser/filebrowser/releases/download/v2.31.2/linux-amd64-filebrowser.tar.gz<br><br><span class="hljs-comment"># 解压</span><br>tar -xvzf linux-amd64-filebrowser.tar.gz<br><br><span class="hljs-comment"># 解压后，将解压出的 filebrowser 二进制文件替换系统中当前的版本。假设旧版本安装在 /usr/local/bin/</span><br><span class="hljs-comment"># 备份当前的 filebrowser 文件</span><br><span class="hljs-built_in">sudo</span> <span class="hljs-built_in">mv</span> /usr/local/bin/filebrowser /usr/local/bin/filebrowser.bak<br><br><span class="hljs-comment"># 移动新的文件到正确的目录</span><br><span class="hljs-built_in">sudo</span> <span class="hljs-built_in">mv</span> filebrowser /usr/local/bin/filebrowser<br><br><span class="hljs-comment"># 确保文件可执行</span><br><span class="hljs-built_in">sudo</span> <span class="hljs-built_in">chmod</span> +x /usr/local/bin/filebrowser<br><br><span class="hljs-comment"># 检查版本以确保升级成功 </span><br>filebrowser version<br><br><span class="hljs-comment"># 重启</span><br><span class="hljs-built_in">sudo</span> systemctl restart filebrowser<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>再次访问的时候会发现版本以及更新完毕了</p>
+</blockquote>
+<img src="530.png" srcset="/huyanqun.github.io/img/loading.gif" lazyload />
 
 
                 
@@ -420,7 +430,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>更新于</div>
-          <div>2024年12月19日</div>
+          <div>2024年12月20日</div>
         </div>
       
       
