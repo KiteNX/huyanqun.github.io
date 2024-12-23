@@ -19,16 +19,16 @@
   <meta name="author" content="胡燕群">
   <meta name="keywords" content="">
   
-    <meta name="description" content="简介File Browser 是一个基于 Web 的文件管理器。它可以使你随时随地的对文件进行基本的管理操作，如：创建（文件，文件夹）、删除、移动、复制等。它除了可以让你进行文件管理之外，还有一些其他的功能。它支持多个用户的管理，而且每个用户可以拥有自己可以访问的文件和权限。它还支持文件分享，就行网盘那样，你可以通过它来向你的朋友分享文件。 安装File Browser 适用于全平台，任何操作系统">
+    <meta name="description" content="简介File Browser 是一个基于 Web 的文件管理器。它可以使你随时随地的对文件进行基本的管理操作，如：创建（文件，文件夹）、删除、移动、复制等。它除了可以让你进行文件管理之外，还有一些其他的功能。它支持多个用户的管理，而且每个用户可以拥有自己可以访问的文件和权限。它还支持文件分享，就像网盘那样，你可以通过它来向你的朋友分享文件。 安装File Browser 适用于全平台，任何操作系统">
 <meta property="og:type" content="article">
 <meta property="og:title" content="FileBrowser 私人网盘安装配置">
 <meta property="og:url" content="https://kitenx.github.io/huyanqun.github.io/2024/12/19/FileBrowser-%E7%A7%81%E4%BA%BA%E7%BD%91%E7%9B%98%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/index.html">
 <meta property="og:site_name" content="XH日常">
-<meta property="og:description" content="简介File Browser 是一个基于 Web 的文件管理器。它可以使你随时随地的对文件进行基本的管理操作，如：创建（文件，文件夹）、删除、移动、复制等。它除了可以让你进行文件管理之外，还有一些其他的功能。它支持多个用户的管理，而且每个用户可以拥有自己可以访问的文件和权限。它还支持文件分享，就行网盘那样，你可以通过它来向你的朋友分享文件。 安装File Browser 适用于全平台，任何操作系统">
+<meta property="og:description" content="简介File Browser 是一个基于 Web 的文件管理器。它可以使你随时随地的对文件进行基本的管理操作，如：创建（文件，文件夹）、删除、移动、复制等。它除了可以让你进行文件管理之外，还有一些其他的功能。它支持多个用户的管理，而且每个用户可以拥有自己可以访问的文件和权限。它还支持文件分享，就像网盘那样，你可以通过它来向你的朋友分享文件。 安装File Browser 适用于全平台，任何操作系统">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://kitenx.github.io/huyanqun.github.io/img/blogsCom.jpg">
 <meta property="article:published_time" content="2024-12-19T09:05:41.000Z">
-<meta property="article:modified_time" content="2024-12-20T08:44:43.613Z">
+<meta property="article:modified_time" content="2024-12-23T03:39:01.187Z">
 <meta property="article:author" content="胡燕群">
 <meta property="article:tag" content="文件管理工具">
 <meta name="twitter:card" content="summary_large_image">
@@ -301,7 +301,7 @@
               <p id="updated-time" class="note note-info" style="">
                 
                   
-                    本文最后更新于 2024年12月20日 下午
+                    本文最后更新于 2024年12月23日 中午
                   
                 
               </p>
@@ -309,7 +309,7 @@
             
               <div class="markdown-body">
                 
-                <h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>File Browser 是一个基于 Web 的文件管理器。它可以使你随时随地的对文件进行基本的管理操作，如：创建（文件，文件夹）、删除、移动、复制等。它除了可以让你进行文件管理之外，还有一些其他的功能。它支持多个用户的管理，而且每个用户可以拥有自己可以访问的文件和权限。它还支持文件分享，就行网盘那样，你可以通过它来向你的朋友分享文件。</p>
+                <h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>File Browser 是一个基于 Web 的文件管理器。它可以使你随时随地的对文件进行基本的管理操作，如：创建（文件，文件夹）、删除、移动、复制等。它除了可以让你进行文件管理之外，还有一些其他的功能。它支持多个用户的管理，而且每个用户可以拥有自己可以访问的文件和权限。它还支持文件分享，就像网盘那样，你可以通过它来向你的朋友分享文件。</p>
 <h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>File Browser 适用于全平台，任何操作系统都可以安装它，当然，<code>这里以 Linux 为主</code></p>
 <p>手动下载：<a target="_blank" rel="noopener" href="https://github.com/filebrowser/filebrowser/releases/latest">https://github.com/filebrowser/filebrowser/releases/latest</a></p>
 <p>如果是手动下载的，那么要上传到 Linux 服务器上面 ，然后解压</p>
@@ -319,7 +319,7 @@
 <h3 id="初始化配置"><a href="#初始化配置" class="headerlink" title="初始化配置"></a>初始化配置</h3><p><strong>初始化：</strong>首先在 <code>/opt/filebrowser.db</code> 路径下（路径可以自行更改）创建数据库文件，并初始化 filebrowser 的配置。</p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs swift">filebrowser <span class="hljs-operator">-</span>d <span class="hljs-regexp">/opt/</span>filebrowser.db config <span class="hljs-keyword">init</span><br></code></pre></td></tr></table></figure>
 
-<p><strong>设置：</strong>设置监听地址为 <code>0.0.0.0</code> ；监听端口为 <code>8088</code> **(这个端口需要在服务器放行)**，默认8080；语言为中文</p>
+<p><strong>设置：</strong>设置监听地址为 <code>0.0.0.0</code> ；监听端口为 <code>8088</code> **(这个端口可以自行更改，但是需要在服务器放行)**，默认8080；语言为中文</p>
 <figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs jboss-cli">filebrowser -d <span class="hljs-string">/opt/filebrowser.db</span> config <span class="hljs-keyword">set</span> <span class="hljs-params">--address</span> 0.0.0.0 <span class="hljs-params">--port</span> 8088 <span class="hljs-params">--locale</span> zh-cn<br></code></pre></td></tr></table></figure>
 
 <p><strong>添加用户：</strong>添加一个用户名为 <code>test</code> ，密码为 <code>123456</code> 的用户，并赋予该用户 <code>admin的权限</code>（用户名密码自行设定）</p>
@@ -366,7 +366,7 @@
 </blockquote>
 <img src="530.png" srcset="/huyanqun.github.io/img/loading.gif" lazyload />
 
-<h3 id="开放端口"><a href="#开放端口" class="headerlink" title="开放端口"></a>开放端口</h3><p>服务器开放端口：</p>
+<h3 id="开放端口"><a href="#开放端口" class="headerlink" title="开放端口"></a>开放端口</h3><p>云服务器开放端口：</p>
 <img src="330.png" srcset="/huyanqun.github.io/img/loading.gif" lazyload />
 
 <p>虚拟机开放端口：</p>
@@ -443,7 +443,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>更新于</div>
-          <div>2024年12月20日</div>
+          <div>2024年12月23日</div>
         </div>
       
       
