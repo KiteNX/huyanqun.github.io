@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>el-date-picker隐藏年，仅显示月日</title>
+    <link href="/huyanqun.github.io/2025/01/03/el-date-picker%E9%9A%90%E8%97%8F%E5%B9%B4%EF%BC%8C%E4%BB%85%E6%98%BE%E7%A4%BA%E6%9C%88%E6%97%A5/"/>
+    <url>/huyanqun.github.io/2025/01/03/el-date-picker%E9%9A%90%E8%97%8F%E5%B9%B4%EF%BC%8C%E4%BB%85%E6%98%BE%E7%A4%BA%E6%9C%88%E6%97%A5/</url>
+    
+    <content type="html"><![CDATA[<p>在开发中，用户需求想要一个<strong>日期选择器</strong>，且 <code>仅选择月日 </code>，在 element 中并没有直接的月日选择器供使用,都是直接年月日的形式</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs html">// 正常显示年月日<br><span class="hljs-tag">&lt;<span class="hljs-name">el-date-picker</span></span><br><span class="hljs-tag">    <span class="hljs-attr">v-model</span>=<span class="hljs-string">&quot;form.value1&quot;</span></span><br><span class="hljs-tag">    <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;date&quot;</span></span><br><span class="hljs-tag">    <span class="hljs-attr">placeholder</span>=<span class="hljs-string">&quot;请选择日期&quot;</span></span><br><span class="hljs-tag">    <span class="hljs-attr">format</span>=<span class="hljs-string">&quot;MM-DD&quot;</span></span><br><span class="hljs-tag">    <span class="hljs-attr">value-format</span>=<span class="hljs-string">&quot;MM-DD&quot;</span></span><br><span class="hljs-tag">    <span class="hljs-attr">style</span>=<span class="hljs-string">&quot;width: 100%;&quot;</span></span><br><span class="hljs-tag"> /&gt;</span> <br></code></pre></td></tr></table></figure><img src="937.png" /><img src="142.png" /><p>通过上面的图片看出，只要将<code>上一年,下一年,年份</code>按钮，将他隐藏，即可仅选择月日</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs html">// 添加 popper-class=&quot;picker-dateNoneYear&quot; <br><span class="hljs-tag">&lt;<span class="hljs-name">el-date-picker</span></span><br><span class="hljs-tag">   <span class="hljs-attr">v-model</span>=<span class="hljs-string">&quot;form.value2&quot;</span></span><br><span class="hljs-tag">   <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;date&quot;</span></span><br><span class="hljs-tag">   <span class="hljs-attr">placeholder</span>=<span class="hljs-string">&quot;请选择日期&quot;</span></span><br><span class="hljs-tag">   <span class="hljs-attr">popper-class</span>=<span class="hljs-string">&quot;picker-dateNoneYear&quot;</span></span><br><span class="hljs-tag">   <span class="hljs-attr">format</span>=<span class="hljs-string">&quot;MM-DD&quot;</span></span><br><span class="hljs-tag">   <span class="hljs-attr">value-format</span>=<span class="hljs-string">&quot;MM-DD&quot;</span></span><br><span class="hljs-tag">  <span class="hljs-attr">style</span>=<span class="hljs-string">&quot;width: 100%;&quot;</span></span><br><span class="hljs-tag">/&gt;</span><br></code></pre></td></tr></table></figure><blockquote><p>下拉框节点不在当前页面，必须写在 **<code>不加 scoped 的 style 标签</code> **里面，否则不生效</p></blockquote><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs stylus">&lt;style lang=<span class="hljs-string">&quot;scss&quot;</span>&gt;<br><span class="hljs-selector-class">.picker-dateNoneYear</span> &#123;<br>  <span class="hljs-selector-class">.el-date-picker__header</span> &#123;<br>    <span class="hljs-selector-class">.el-date-picker__prev-btn</span> &#123;<br>      &gt; <span class="hljs-selector-tag">button</span><span class="hljs-selector-pseudo">:first-child</span> &#123;<br>        <span class="hljs-attribute">display</span>: none;<br>      &#125;<br>    &#125;<br>    <span class="hljs-selector-class">.el-date-picker__next-btn</span> &#123;<br>      &gt; <span class="hljs-selector-tag">button</span><span class="hljs-selector-pseudo">:last-child</span> &#123;<br>        <span class="hljs-attribute">display</span>: none;<br>      &#125;<br>    &#125;<br>    &gt; <span class="hljs-selector-tag">span</span><span class="hljs-selector-pseudo">:nth-child</span>(<span class="hljs-number">2</span>) &#123;<br>      <span class="hljs-attribute">display</span>: none;<br>    &#125;<br>  &#125;<br>&#125;<br>&lt;/style&gt;<br></code></pre></td></tr></table></figure><img src="182.png" />]]></content>
+    
+    
+    <categories>
+      
+      <category>Web</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Vue</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>vue3-print-nb</title>
     <link href="/huyanqun.github.io/2025/01/03/vue3-print-nb/"/>
     <url>/huyanqun.github.io/2025/01/03/vue3-print-nb/</url>
