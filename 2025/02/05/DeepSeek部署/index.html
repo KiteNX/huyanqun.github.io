@@ -19,16 +19,16 @@
   <meta name="author" content="胡燕群">
   <meta name="keywords" content="">
   
-    <meta name="description" content="硅基流动 API 部署 DeepSeek官网：https:&#x2F;&#x2F;siliconflow.cn&#x2F;zh-cn&#x2F; 新建API密钥  在 ChatBox 里面使用ChatBox 下载安装 官网：https:&#x2F;&#x2F;chatboxai.app&#x2F;zh     配置   使用   在 VSCode 里面使用下载插件 cline   配置 cline 插件     使用   本地部署 DeepSeek下载 ollama">
+    <meta name="description" content="硅基流动 API 部署 DeepSeek官网：https:&#x2F;&#x2F;siliconflow.cn&#x2F;zh-cn&#x2F; 新建API密钥  在 ChatBox 里面使用ChatBox 下载安装 官网：https:&#x2F;&#x2F;chatboxai.app&#x2F;zh     配置   使用   在 VSCode 里面使用下载插件 cline   配置 cline 插件     使用   Windows 本地部署 DeepSeek下">
 <meta property="og:type" content="article">
 <meta property="og:title" content="DeepSeek部署">
 <meta property="og:url" content="https://kitenx.github.io/huyanqun.github.io/2025/02/05/DeepSeek%E9%83%A8%E7%BD%B2/index.html">
 <meta property="og:site_name" content="XH日常">
-<meta property="og:description" content="硅基流动 API 部署 DeepSeek官网：https:&#x2F;&#x2F;siliconflow.cn&#x2F;zh-cn&#x2F; 新建API密钥  在 ChatBox 里面使用ChatBox 下载安装 官网：https:&#x2F;&#x2F;chatboxai.app&#x2F;zh     配置   使用   在 VSCode 里面使用下载插件 cline   配置 cline 插件     使用   本地部署 DeepSeek下载 ollama">
+<meta property="og:description" content="硅基流动 API 部署 DeepSeek官网：https:&#x2F;&#x2F;siliconflow.cn&#x2F;zh-cn&#x2F; 新建API密钥  在 ChatBox 里面使用ChatBox 下载安装 官网：https:&#x2F;&#x2F;chatboxai.app&#x2F;zh     配置   使用   在 VSCode 里面使用下载插件 cline   配置 cline 插件     使用   Windows 本地部署 DeepSeek下">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://kitenx.github.io/huyanqun.github.io/img/deepseek-chat.jpg">
 <meta property="article:published_time" content="2025-02-05T06:00:15.000Z">
-<meta property="article:modified_time" content="2025-02-05T08:09:30.713Z">
+<meta property="article:modified_time" content="2025-02-06T03:16:39.138Z">
 <meta property="article:author" content="胡燕群">
 <meta property="article:tag" content="模型训练">
 <meta name="twitter:card" content="summary_large_image">
@@ -248,7 +248,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          244 字
+          692 字
         
       </span>
     
@@ -259,7 +259,7 @@
         
         
         
-          3 分钟
+          6 分钟
         
       </span>
     
@@ -301,7 +301,7 @@
               <p id="updated-time" class="note note-info" style="">
                 
                   
-                    本文最后更新于 2025年2月5日 下午
+                    本文最后更新于 2025年2月6日 上午
                   
                 
               </p>
@@ -335,7 +335,7 @@
 <p>使用</p>
 <img src="314.png" srcset="/huyanqun.github.io/img/loading.gif" lazyload class="custom-img" />
 
-<h1 id="本地部署-DeepSeek"><a href="#本地部署-DeepSeek" class="headerlink" title="本地部署 DeepSeek"></a>本地部署 DeepSeek</h1><p>下载 ollama</p>
+<h1 id="Windows-本地部署-DeepSeek"><a href="#Windows-本地部署-DeepSeek" class="headerlink" title="Windows 本地部署 DeepSeek"></a>Windows 本地部署 DeepSeek</h1><p>下载 ollama</p>
 <img src="608.png" srcset="/huyanqun.github.io/img/loading.gif" lazyload class="custom-img" />
 
 <p>安装（默认安装在 C盘）</p>
@@ -375,6 +375,50 @@
 <img src="324.png" srcset="/huyanqun.github.io/img/loading.gif" lazyload class="custom-img" />
 
 <img src="126.png" srcset="/huyanqun.github.io/img/loading.gif" lazyload class="custom-img" />
+
+<h1 id="Linux-服务器部署-DeepSeek-R1-及远程连接"><a href="#Linux-服务器部署-DeepSeek-R1-及远程连接" class="headerlink" title="Linux 服务器部署 DeepSeek R1 及远程连接"></a>Linux 服务器部署 DeepSeek R1 及远程连接</h1><blockquote>
+<p>使用 <code>ollama</code> 在 <code>linux</code> 服务器部署 <code>deepseek R1</code> 模型，并使用 <code>Chatbox</code> 客户端远程连接</p>
+</blockquote>
+<h2 id="安装ollama"><a href="#安装ollama" class="headerlink" title="安装ollama"></a>安装<code>ollama</code></h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 需要root权限 一定要切换到 root 用户</span><br>curl -fsSL https://ollama.com/install.sh | sh<br></code></pre></td></tr></table></figure>
+
+<img src="0420.png" srcset="/huyanqun.github.io/img/loading.gif" lazyload class="custom-img" />
+
+<p>示例</p>
+<figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs clean">[root@anonymous]# curl -fsSL https:<span class="hljs-comment">//ollama.com/install.sh | sh</span><br>&gt;&gt;&gt; Installing ollama to /usr/local<br>&gt;&gt;&gt; Downloading Linux amd64 bundle<br>#################################################################### <span class="hljs-number">100.0</span>%<br>&gt;&gt;&gt; Creating ollama user...<br>&gt;&gt;&gt; Adding ollama user to render group...<br>&gt;&gt;&gt; Adding ollama user to video group...<br>&gt;&gt;&gt; Adding current user to ollama group...<br>&gt;&gt;&gt; creating ollama systemd service...<br>&gt;&gt;&gt; Enabling and starting ollama service...<br>Created symlink /etc/systemd/<span class="hljs-keyword">system</span>/default.target.wants/ollama.service -&gt; /etc/systemd/<span class="hljs-keyword">system</span>/ollama.service.<br>&gt;&gt;&gt; The Ollama API is now available at <span class="hljs-number">127.0</span><span class="hljs-number">.0</span><span class="hljs-number">.1</span>:<span class="hljs-number">11434.</span><br>&gt;&gt;&gt; Install complete. Run <span class="hljs-string">&quot;ollama&quot;</span> <span class="hljs-keyword">from</span> the command line.<br>WARNING: No NVIDIA/AMD GPU detected. <span class="hljs-number">0</span>llama will run <span class="hljs-keyword">in</span> CPU-only mode.<br>[root@anonymous]# <br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>服务器中没有 <code>GPU</code>，会报警告 但是不会影响小数据测试使用</p>
+</blockquote>
+<h2 id="配置-ollama-外部-ip-访问"><a href="#配置-ollama-外部-ip-访问" class="headerlink" title="配置 ollama 外部 ip 访问"></a>配置 <code>ollama</code> 外部 <code>ip</code> 访问</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 使用 vi 编辑器</span><br><span class="hljs-comment"># 按 i键 代表进入输入状态</span><br><span class="hljs-comment"># 把这两行添加好之后 按 esc键 代表退出输入状态</span><br><span class="hljs-comment"># 接着在按 :wq 直接回车</span><br>vi /etc/systemd/system/ollama.service<br><br><span class="hljs-comment"># 在Service中增加下面两行</span><br>Environment=<span class="hljs-string">&quot;OLLAMA_HOST=0.0.0.0&quot;</span><br>Environment=<span class="hljs-string">&quot;OLLAMA_ORIGINS=*&quot;</span><br><br><span class="hljs-comment"># 然后重启ollama服务</span><br>systemctl daemon-reload<br>systemctl restart ollama<br></code></pre></td></tr></table></figure>
+
+<img src="52.png" srcset="/huyanqun.github.io/img/loading.gif" lazyload class="custom-img" />
+
+<h2 id="服务重启之后查看-11434端口"><a href="#服务重启之后查看-11434端口" class="headerlink" title="服务重启之后查看 11434端口"></a>服务重启之后查看 11434端口</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">netstat -tulpn | grep 11434<br></code></pre></td></tr></table></figure>
+
+<p>示例</p>
+<img src="023.png" srcset="/huyanqun.github.io/img/loading.gif" lazyload class="custom-img" />
+
+<p>测试使用浏览器访问服务器 <code>ip</code> 会显示 <code>Ollama is running</code></p>
+<img src="0629.png" srcset="/huyanqun.github.io/img/loading.gif" lazyload class="custom-img" />
+
+<p>如果你能够在本地机器上看到 <code>ollama</code> 服务正在监听端口 <code>11434</code>，但外部无法访问 开放端口之后再次测试</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 确保防火墙允许流量通过 11434 端口</span><br><span class="hljs-built_in">sudo</span> firewall-cmd --zone=public --add-port=11434/tcp --permanent<br><span class="hljs-built_in">sudo</span> firewall-cmd --reload<br></code></pre></td></tr></table></figure>
+
+<h2 id="使用-ollama-命令运行-1-5B-模型"><a href="#使用-ollama-命令运行-1-5B-模型" class="headerlink" title="使用 ollama 命令运行 1.5B 模型"></a>使用 <code>ollama</code> 命令运行 <code>1.5B</code> 模型</h2><blockquote>
+<p>这个模型根据自己的配置选择</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">ollama run deepseek-r1:1.5b<br></code></pre></td></tr></table></figure>
+
+<h2 id="服务-IP-地址"><a href="#服务-IP-地址" class="headerlink" title="服务 IP 地址"></a>服务 IP 地址</h2><p>Ollama 服务将能在当前网络（如家庭 Wifi）中提供服务 可以使用其他设备上的 <code>Chatbox 客户端</code> 连接到此服务</p>
+<p>Ollama 服务的 IP 地址是你电脑在当前网络中的地址，通常形式如下：</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">192</span>.<span class="hljs-number">168</span>.XX.XX<br></code></pre></td></tr></table></figure>
+
+<p>在 Chatbox 中，将 API Host 设置为：</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">http</span>://<span class="hljs-number">192</span>.<span class="hljs-number">168</span>.XX.XX:<span class="hljs-number">11434</span><br></code></pre></td></tr></table></figure>
+
+<img src="1622.png" srcset="/huyanqun.github.io/img/loading.gif" lazyload class="custom-img" />
+
+
                 
               </div>
             
@@ -438,7 +482,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>更新于</div>
-          <div>2025年2月5日</div>
+          <div>2025年2月6日</div>
         </div>
       
       
