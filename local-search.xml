@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>如何在Mac上安装Xcode命令行工具</title>
+    <link href="/huyanqun.github.io/2025/03/09/%E5%A6%82%E4%BD%95%E5%9C%A8Mac%E4%B8%8A%E5%AE%89%E8%A3%85Xcode%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%B7%A5%E5%85%B7/"/>
+    <url>/huyanqun.github.io/2025/03/09/%E5%A6%82%E4%BD%95%E5%9C%A8Mac%E4%B8%8A%E5%AE%89%E8%A3%85Xcode%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%B7%A5%E5%85%B7/</url>
+    
+    <content type="html"><![CDATA[<blockquote><p>开发人员在 Mac 上开发软件之前需要安装 Xcode 命令行工具。</p><p>苹果为程序员提供了一个名为 Xcode 的完整开发环境。如果你正在开发用于 macOS、iOS、tvOS 和 watchOS 的软件，你必须安装完整的 Xcode 应用程序。</p><p>它没有预装，但你可以从<a href="https://developer.apple.com/download/">苹果开发者网站</a>或 Mac 上的 App Store 安装它</p><p><code> macOS 下载并安装 Xcode Command Line Tools（无需安装 Xcode App）</code></p></blockquote><h3 id="什么是-Xcode-Command-Line-Tools？"><a href="#什么是-Xcode-Command-Line-Tools？" class="headerlink" title="什么是 Xcode Command Line Tools？"></a>什么是 Xcode Command Line Tools？</h3><p><strong>Xcode Command Line Tools</strong> 是 Apple 提供的一组开发工具集合，主要用于命令行开发环境。</p><p>它包含但不限于：</p><ul><li><code>clang / clang++</code></li><li><code>gcc</code>（实际为 clang 的别名）</li><li><code>git</code></li><li><code>make</code></li><li><code>ld</code></li><li>macOS SDK 头文件</li></ul><p>📦 <strong>体积小（几百 MB）</strong>，非常适合不做 iOS &#x2F; macOS App 开发的开发者。</p><h3 id="哪些情况只需要命令行工具？"><a href="#哪些情况只需要命令行工具？" class="headerlink" title="哪些情况只需要命令行工具？"></a>哪些情况只需要命令行工具？</h3><p>以下场景 <strong>不需要安装完整 Xcode</strong>：</p><ul><li>前端开发（Node.js &#x2F; npm &#x2F; pnpm &#x2F; yarn）</li><li>后端开发（Go &#x2F; Python &#x2F; Java &#x2F; Rust）</li><li>编译 npm &#x2F; pip &#x2F; brew 依赖</li><li>使用 Git &#x2F; CMake &#x2F; Make</li><li>日常脚本开发</li></ul><p>👉 <strong>90% 的非 iOS 开发者只需要命令行工具</strong></p><h3 id="如何从命令提示符中安装-Xcode-命令行工具？"><a href="#如何从命令提示符中安装-Xcode-命令行工具？" class="headerlink" title="如何从命令提示符中安装 Xcode 命令行工具？"></a>如何从命令提示符中安装 Xcode 命令行工具？</h3><p>打开终端（Terminal）在终端中输入命令 <code>xcode-select --install</code> 来开始安装过程。你会看到一个面板，要求你安装 Xcode 命令行工具。</p><img src="install-Xcode-CLT.png" class="custom-img" /><p>点击 “Install”（安装），开始下载和安装过程。</p><img src="install-Xcode-CLT-progress.png" class="custom-img" /><p>当安装完成后，你会看到一个确认信息。</p><h3 id="验证是否安装成功"><a href="#验证是否安装成功" class="headerlink" title="验证是否安装成功"></a>验证是否安装成功</h3><p>查看 clang 是否可用</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">clang --version<br></code></pre></td></tr></table></figure><p> 查看 git 是否可用</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">git --version<br></code></pre></td></tr></table></figure><p>查看命令行工具路径</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">xcode-select -p<br></code></pre></td></tr></table></figure><p>如果输出为：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">/Library/Developer/CommandLineTools<br></code></pre></td></tr></table></figure><blockquote><p>说明你安装的是 <strong>命令行工具（而不是完整 Xcode）</strong>。</p></blockquote><h3 id="常见问题与解决方法"><a href="#常见问题与解决方法" class="headerlink" title="常见问题与解决方法"></a>常见问题与解决方法</h3><p>已安装 Xcode，但命令行工具异常</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> xcode-select --reset<br></code></pre></td></tr></table></figure><p> 切换到命令行工具路径</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> xcode-select --switch /Library/Developer/CommandLineTools<br></code></pre></td></tr></table></figure><p>卸载命令行工具（不常用）</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> <span class="hljs-built_in">rm</span> -rf /Library/Developer/CommandLineTools<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>Web</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Xcode</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>在Gitee中的README.md文件中添加图片</title>
     <link href="/huyanqun.github.io/2025/02/13/%E5%9C%A8Gitee%E4%B8%AD%E7%9A%84README-md%E6%96%87%E4%BB%B6%E4%B8%AD%E6%B7%BB%E5%8A%A0%E5%9B%BE%E7%89%87/"/>
     <url>/huyanqun.github.io/2025/02/13/%E5%9C%A8Gitee%E4%B8%AD%E7%9A%84README-md%E6%96%87%E4%BB%B6%E4%B8%AD%E6%B7%BB%E5%8A%A0%E5%9B%BE%E7%89%87/</url>
