@@ -26,13 +26,13 @@
 <meta property="og:site_name" content="XH日常">
 <meta property="og:description" content="在使用 Hexo 搭建个人博客后，很多人都会遇到一个问题网站已经上线，但在 Google &#x2F; Bing 搜索中却完全搜不到  Hexo 博客为什么默认搜不到Hexo 是一个纯静态站点生成器，本身不具备自动推送搜索引擎的能力：  ❌ 没有后端接口 ❌ 不会主动通知搜索引擎 ❌ 新站点权重极低  所以如果什么都不做，搜索引擎只能靠“偶然爬取”，速度非常慢，甚至长期不收录。 上线前的基础准备">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://kitenx.github.io/huyanqun.github.io/img/Xcode.jpg">
+<meta property="og:image" content="https://kitenx.github.io/huyanqun.github.io/img/seo.png">
 <meta property="article:published_time" content="2026-01-16T06:13:13.000Z">
-<meta property="article:modified_time" content="2026-01-16T06:20:17.364Z">
+<meta property="article:modified_time" content="2026-01-16T07:25:53.302Z">
 <meta property="article:author" content="胡燕群">
 <meta property="article:tag" content="SEO">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://kitenx.github.io/huyanqun.github.io/img/Xcode.jpg">
+<meta name="twitter:image" content="https://kitenx.github.io/huyanqun.github.io/img/seo.png">
   
   
   
@@ -248,7 +248,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          366 字
+          622 字
         
       </span>
     
@@ -259,7 +259,7 @@
         
         
         
-          4 分钟
+          6 分钟
         
       </span>
     
@@ -350,10 +350,62 @@
 <p>3️⃣ 重新生成并部署</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">hexo clean<br>hexo g<br>hexo d<br></code></pre></td></tr></table></figure>
 
+<p>即可在 <code>public</code> 文件夹下找到新生成的 <code>sitemap.xml</code> 文件</p>
 <p>访问以下地址确认是否生成成功：</p>
 <ul>
 <li><code>https://你的域名/sitemap.xml</code></li>
 </ul>
+<img src="362.png" srcset="/huyanqun.github.io/img/loading.gif" lazyload class="custom-img" />
+
+<h3 id="提交-Google-Search-Console"><a href="#提交-Google-Search-Console" class="headerlink" title="提交 Google Search Console"></a>提交 Google Search Console</h3><p>1️⃣ 进入控制台</p>
+<p>👉 <a target="_blank" rel="noopener" href="https://search.google.com/search-console">https://search.google.com/search-console</a></p>
+<p>2️⃣ 添加网站</p>
+<p>推荐选择 <strong>URL 前缀方式</strong>，例如：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">https://example.com<br></code></pre></td></tr></table></figure>
+
+<img src="433.png" srcset="/huyanqun.github.io/img/loading.gif" lazyload class="custom-img" />
+
+<p>在弹出以下界面后，点击“前往资源界面</p>
+<img src="168.png" srcset="/huyanqun.github.io/img/loading.gif" lazyload class="custom-img" />
+
+<p>3️⃣ 下载验证 HTML 文件（推荐）</p>
+<img src="57.png" srcset="/huyanqun.github.io/img/loading.gif" lazyload class="custom-img" />
+
+<p>下载文件之后将 HTML 文件放入  Hexo 项目的 <code>source</code> 目录下</p>
+<img src="519.png" srcset="/huyanqun.github.io/img/loading.gif" lazyload class="custom-img" />
+
+<p>4️⃣ 重新生成并部署</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">hexo clean<br>hexo g<br>hexo d<br></code></pre></td></tr></table></figure>
+
+<p>部署完成后，访问：</p>
+<img src="428.png" srcset="/huyanqun.github.io/img/loading.gif" lazyload class="custom-img" />
+
+<p>5️⃣ 完成验证</p>
+<p>回到 Google Search Console，点击 <strong>验证</strong>，即可通过。</p>
+<p>然后在 <strong>“站点地图”</strong> 中提交：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sitemap.xml<br></code></pre></td></tr></table></figure>
+
+<p>提交成功后，等待 Google 抓取。</p>
+<p>⏱ 一般 <strong>1～7 天内开始出现收录</strong></p>
+<h3 id="提交-Bing-Webmaster-Tools"><a href="#提交-Bing-Webmaster-Tools" class="headerlink" title="提交 Bing Webmaster Tools"></a>提交 Bing Webmaster Tools</h3><p>1️⃣ 进入 Bing 管理工具</p>
+<p>👉 <a target="_blank" rel="noopener" href="https://www.bing.com/webmasters">https://www.bing.com/webmasters</a></p>
+<p>2️⃣ 添加站点</p>
+<p>支持：</p>
+<ul>
+<li>sitemap 导入</li>
+<li>或直接导入 Google Search Console 数据（推荐）</li>
+</ul>
+<p>3️⃣下载 Bing 验证文件放入 <code>source</code> 目录 部署提交 sitemap </p>
+<p>文件名通常类似：</p>
+<figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs lasso">BingSiteAuth.<span class="hljs-built_in">xml</span><br></code></pre></td></tr></table></figure>
+
+<img src="652.png" srcset="/huyanqun.github.io/img/loading.gif" lazyload class="custom-img" />
+
+<p>Bing 通常<strong>比 Google 收录更快</strong>。</p>
+<h3 id="如何确认是否被收录？"><a href="#如何确认是否被收录？" class="headerlink" title="如何确认是否被收录？"></a>如何确认是否被收录？</h3><p>Google &#x2F; Bing 通用方式：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">site:example.com<br></code></pre></td></tr></table></figure>
+
+<p>如果能看到页面列表，说明已经<strong>成功收录</strong> 🎉</p>
 
                 
               </div>
