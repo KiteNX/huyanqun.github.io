@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>如何被Google和Bing收录</title>
+    <link href="/huyanqun.github.io/2026/01/16/%E5%A6%82%E4%BD%95%E8%A2%ABGoogle%E5%92%8CBing%E6%94%B6%E5%BD%95/"/>
+    <url>/huyanqun.github.io/2026/01/16/%E5%A6%82%E4%BD%95%E8%A2%ABGoogle%E5%92%8CBing%E6%94%B6%E5%BD%95/</url>
+    
+    <content type="html"><![CDATA[<blockquote><p>在使用 Hexo 搭建个人博客后，很多人都会遇到一个问题<br><strong>网站已经上线，但在 Google &#x2F; Bing 搜索中却完全搜不到</strong></p></blockquote><h3 id="Hexo-博客为什么默认搜不到"><a href="#Hexo-博客为什么默认搜不到" class="headerlink" title="Hexo 博客为什么默认搜不到"></a>Hexo 博客为什么默认搜不到</h3><p>Hexo 是一个<strong>纯静态站点生成器</strong>，本身不具备自动推送搜索引擎的能力：</p><ul><li>❌ 没有后端接口</li><li>❌ 不会主动通知搜索引擎</li><li>❌ 新站点权重极低</li></ul><p>所以如果<strong>什么都不做</strong>，搜索引擎只能靠“偶然爬取”，速度非常慢，甚至长期不收录。</p><h3 id="上线前的基础准备（很重要）"><a href="#上线前的基础准备（很重要）" class="headerlink" title="上线前的基础准备（很重要）"></a>上线前的基础准备（很重要）</h3><p>在提交搜索引擎之前，需要先确保下面几点已经完成：</p><p>1️⃣ 网站可以正常访问</p><ul><li>域名已解析</li><li>HTTPS 正常（强烈建议）</li><li>无 403 &#x2F; 404 &#x2F; 重定向死循环</li></ul><p>可以直接在浏览器访问你的域名确认。</p><p>2️⃣ 确保没有禁止爬虫</p><p>检查 Hexo 根目录是否存在 <code>robots.txt</code>：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">User-agent: *<br>Allow: /<br></code></pre></td></tr></table></figure><p>如果出现下面内容，会直接导致<strong>不收录</strong>：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">Disallow: /<br></code></pre></td></tr></table></figure><p>3️⃣ 页面中存在有效内容</p><ul><li>至少 5～10 篇原创文章</li><li>每篇文章有标题、正文</li><li>避免空站 &#x2F; 只有首页</li></ul><h3 id="生成-sitemap（站点地图）"><a href="#生成-sitemap（站点地图）" class="headerlink" title="生成 sitemap（站点地图）"></a>生成 sitemap（站点地图）</h3><p><code>sitemap</code> 是搜索引擎最重要的入口文件之一。</p><p>1️⃣ 安装插件</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">npm install hexo-generator-sitemap hexo-generator-baidu-sitemap --save<br></code></pre></td></tr></table></figure><p>2️⃣ 修改 <code>_config.yml</code></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash">sitemap:<br>  path: sitemap.xml<br><br>baidusitemap:<br>  path: baidusitemap.xml<br></code></pre></td></tr></table></figure><p>3️⃣ 重新生成并部署</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">hexo clean<br>hexo g<br>hexo d<br></code></pre></td></tr></table></figure><p>访问以下地址确认是否生成成功：</p><ul><li><code>https://你的域名/sitemap.xml</code></li></ul>]]></content>
+    
+    
+    <categories>
+      
+      <category>Web</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SEO</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Mac前端开发环境完整方案</title>
     <link href="/huyanqun.github.io/2026/01/13/Mac%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E5%AE%8C%E6%95%B4%E6%96%B9%E6%A1%88/"/>
     <url>/huyanqun.github.io/2026/01/13/Mac%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E5%AE%8C%E6%95%B4%E6%96%B9%E6%A1%88/</url>
