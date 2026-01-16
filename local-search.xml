@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>git提交代码注释规范</title>
+    <link href="/huyanqun.github.io/2026/01/16/git%E6%8F%90%E4%BA%A4%E4%BB%A3%E7%A0%81%E6%B3%A8%E9%87%8A%E8%A7%84%E8%8C%83/"/>
+    <url>/huyanqun.github.io/2026/01/16/git%E6%8F%90%E4%BA%A4%E4%BB%A3%E7%A0%81%E6%B3%A8%E9%87%8A%E8%A7%84%E8%8C%83/</url>
+    
+    <content type="html"><![CDATA[<blockquote><p>统一的 Git 提交规范，可以显著提升项目的可维护性和团队协作效率。<br>即使是个人项目，长期坚持规范提交，也能让代码历史更加清晰可读。</p></blockquote><h3 id="Commit-Message-基本格式"><a href="#Commit-Message-基本格式" class="headerlink" title="Commit Message 基本格式"></a>Commit Message 基本格式</h3><p>推荐使用如下格式：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">&lt;<span class="hljs-built_in">type</span>&gt;: &lt;简要描述&gt;<br></code></pre></td></tr></table></figure><p>示例：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">feat: 新增用户登录功能<br>fix: 修复订单列表分页错误<br>perf: 优化首页加载性能<br></code></pre></td></tr></table></figure><h3 id="常用提交类型说明"><a href="#常用提交类型说明" class="headerlink" title="常用提交类型说明"></a>常用提交类型说明</h3><p>1️⃣ feat（新增功能）</p><p>用于 <strong>新增功能或需求</strong>。</p><figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs avrasm"><span class="hljs-symbol">feat:</span> 新增用户注册功能<br><span class="hljs-symbol">feat:</span> 支持多语言切换<br></code></pre></td></tr></table></figure><p>2️⃣ fix（修复 bug）</p><p>用于 <strong>修复问题或缺陷</strong>。</p><figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs avrasm"><span class="hljs-symbol">fix:</span> 修复登录状态丢失问题<br><span class="hljs-symbol">fix:</span> 修复移动端样式错位<br></code></pre></td></tr></table></figure><p>3️⃣ perf（性能优化）</p><p>用于 <strong>性能或体验相关优化</strong>，不涉及功能变更。</p><figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs avrasm"><span class="hljs-symbol">perf:</span> 优化列表渲染性能<br><span class="hljs-symbol">perf:</span> 减少首页首屏加载时间<br></code></pre></td></tr></table></figure><p>4️⃣ refactor（代码重构）</p><p>用于 <strong>不影响功能、不修复 bug 的代码结构调整</strong>。</p><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs angelscript"><span class="hljs-built_in">ref</span>actor: 重构用户模块代码结构<br><span class="hljs-built_in">ref</span>actor: 抽离公共请求方法<br></code></pre></td></tr></table></figure><p>5️⃣ test（测试相关）</p><p>用于 <strong>新增或修改测试用例</strong>，包括单元测试、集成测试等。</p><figure class="highlight subunit"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs subunit"><span class="hljs-keyword">test: </span>新增用户模块单元测试<br><span class="hljs-keyword">test: </span>补充登录流程测试用例<br></code></pre></td></tr></table></figure><p>6️⃣ docs（文档更新）</p><p>仅用于 <strong>文档类修改</strong>，不涉及代码逻辑。</p><figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs avrasm"><span class="hljs-symbol">docs:</span> 更新 README 使用说明<br><span class="hljs-symbol">docs:</span> 补充接口文档示例<br></code></pre></td></tr></table></figure><p>7️⃣ style（代码风格调整）</p><p>仅修改 <strong>格式、空格、缩进、变量命名等</strong>，不改变逻辑。</p><figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs avrasm"><span class="hljs-symbol">style:</span> 统一代码格式<br><span class="hljs-symbol">style:</span> 调整变量命名规范<br></code></pre></td></tr></table></figure><p>8️⃣ chore（杂项 &#x2F; 工程配置）</p><p>用于 <strong>构建流程、依赖、工具配置等变更</strong>。</p><figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs avrasm"><span class="hljs-symbol">chore:</span> 升级依赖版本<br><span class="hljs-symbol">chore:</span> 调整构建脚本<br><span class="hljs-symbol">chore:</span> 更新 ESLint 配置<br></code></pre></td></tr></table></figure><p>9️⃣ revert（回滚）</p><p>用于 <strong>回滚到之前的提交</strong>，一般由 Git 自动生成。</p><figure class="highlight coq"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs coq"><span class="hljs-built_in">revert</span>: <span class="hljs-built_in">revert</span> <span class="hljs-string">&quot;feat: 新增支付功能&quot;</span><br></code></pre></td></tr></table></figure><p>🔟 merge（代码合并）</p><p>用于 <strong>分支合并或同步代码</strong>。</p><figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs avrasm"><span class="hljs-symbol">merge:</span> 合并 dev 分支到 main<br><span class="hljs-symbol">merge:</span> 同步上游代码<br></code></pre></td></tr></table></figure><h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><img src="893.png" class="custom-img" />]]></content>
+    
+    
+    <categories>
+      
+      <category>Git</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Git</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>如何被Google和Bing收录</title>
     <link href="/huyanqun.github.io/2026/01/16/%E5%A6%82%E4%BD%95%E8%A2%ABGoogle%E5%92%8CBing%E6%94%B6%E5%BD%95/"/>
     <url>/huyanqun.github.io/2026/01/16/%E5%A6%82%E4%BD%95%E8%A2%ABGoogle%E5%92%8CBing%E6%94%B6%E5%BD%95/</url>
