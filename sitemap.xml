@@ -279,13 +279,6 @@
   </url>
   
   <url>
-    <loc>https://kitenx.github.io/huyanqun.github.io/tags/Fluid/</loc>
-    <lastmod>2026-01-16</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://kitenx.github.io/huyanqun.github.io/tags/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/</loc>
     <lastmod>2026-01-16</lastmod>
     <changefreq>weekly</changefreq>
@@ -294,6 +287,13 @@
   
   <url>
     <loc>https://kitenx.github.io/huyanqun.github.io/tags/%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7/</loc>
+    <lastmod>2026-01-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://kitenx.github.io/huyanqun.github.io/tags/Fluid/</loc>
     <lastmod>2026-01-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -358,14 +358,14 @@
   </url>
   
   <url>
-    <loc>https://kitenx.github.io/huyanqun.github.io/categories/Hexo/</loc>
+    <loc>https://kitenx.github.io/huyanqun.github.io/categories/Web/</loc>
     <lastmod>2026-01-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://kitenx.github.io/huyanqun.github.io/categories/Web/</loc>
+    <loc>https://kitenx.github.io/huyanqun.github.io/categories/Hexo/</loc>
     <lastmod>2026-01-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
