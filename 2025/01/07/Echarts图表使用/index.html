@@ -1,0 +1,820 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/huyanqun.github.io/img/fluid.png">
+  <link rel="icon" href="/huyanqun.github.io/img/fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="ECharts 是一个基于 JavaScript 的开源可视化图表库，广泛应用于数据可视化，支持多种类型的图表和高度定制化的选项。通常在前端开发中，ECharts 被用于创建各种交互式数据图表，如折线图、柱状图、饼图、雷达图等 文档：Apache ECharts   在首页展示图表 不带权限的 不管是谁登录都会展示  1234567891011121314151617181920212223242">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Echarts图表使用">
+<meta property="og:url" content="https://kitenx.github.io/huyanqun.github.io/2025/01/07/Echarts%E5%9B%BE%E8%A1%A8%E4%BD%BF%E7%94%A8/index.html">
+<meta property="og:site_name" content="XH日常">
+<meta property="og:description" content="ECharts 是一个基于 JavaScript 的开源可视化图表库，广泛应用于数据可视化，支持多种类型的图表和高度定制化的选项。通常在前端开发中，ECharts 被用于创建各种交互式数据图表，如折线图、柱状图、饼图、雷达图等 文档：Apache ECharts   在首页展示图表 不带权限的 不管是谁登录都会展示  1234567891011121314151617181920212223242">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://kitenx.github.io/huyanqun.github.io/img/2585.png">
+<meta property="article:published_time" content="2025-01-07T01:44:35.000Z">
+<meta property="article:modified_time" content="2025-02-12T05:54:06.000Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="数据可视化">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://kitenx.github.io/huyanqun.github.io/img/2585.png">
+  
+  
+  
+  <title>Echarts图表使用 - XH日常</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/huyanqun.github.io/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/huyanqun.github.io/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/huyanqun.github.io/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="/huyanqun.github.io/css/custom.css">
+<link rel="stylesheet" href="/huyanqun.github.io/css/shubiao.css">
+<link rel="stylesheet" href="/huyanqun.github.io/css/scroll.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"kitenx.github.io","root":"/huyanqun.github.io/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/huyanqun.github.io/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/huyanqun.github.io/js/utils.js" ></script>
+  <script  src="/huyanqun.github.io/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/huyanqun.github.io/">
+      <strong>XH日常</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/huyanqun.github.io/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/huyanqun.github.io/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/huyanqun.github.io/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/huyanqun.github.io/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/huyanqun.github.io/links/" target="_self">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/huyanqun.github.io/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/huyanqun.github.io/img/14859.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Echarts图表使用"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        John Doe
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2025-01-07 09:44" pubdate>
+          2025年1月7日 上午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          4.7k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          39 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">Echarts图表使用</h1>
+            
+              <p id="updated-time" class="note note-info" style="">
+                
+                  
+                    本文最后更新于 2025年2月12日 下午
+                  
+                
+              </p>
+            
+            
+              <div class="markdown-body">
+                
+                <p>ECharts 是一个基于 JavaScript 的开源可视化图表库，广泛应用于数据可视化，支持多种类型的图表和高度定制化的选项。通常在前端开发中，ECharts 被用于创建各种交互式数据图表，如折线图、柱状图、饼图、雷达图等</p>
+<p>文档：<a target="_blank" rel="noopener" href="https://echarts.apache.org/zh/index.html">Apache ECharts</a></p>
+<img src="135.png" srcset="/huyanqun.github.io/img/loading.gif" lazyload class="custom-img" />
+
+<h3 id="在首页展示图表"><a href="#在首页展示图表" class="headerlink" title="在首页展示图表"></a>在首页展示图表</h3><blockquote>
+<p>不带权限的 不管是谁登录都会展示</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><code class="hljs vue">&lt;!-- src\views\dashboard\index.vue --&gt;<br>&lt;template&gt;<br>  &lt;div class=&quot;dashboard-container&quot;&gt;<br>    &lt;!-- Echarts 图表 --&gt;<br>    &lt;el-row :gutter=&quot;10&quot; class=&quot;mt-3&quot;&gt;<br>      &lt;el-col<br>        :xs=&quot;24&quot;<br>        :sm=&quot;12&quot;<br>        :lg=&quot;12&quot;<br>        class=&quot;mb-2&quot;<br>        v-for=&quot;item in chartData&quot;<br>        :key=&quot;item&quot;<br>      &gt;<br>        &lt;component<br>          :is=&quot;chartComponent(item)&quot;<br>          :id=&quot;item&quot;<br>          height=&quot;400px&quot;<br>          width=&quot;100%&quot;<br>          class=&quot;bg-[var(--el-bg-color-overlay)]&quot;<br>        /&gt;<br>      &lt;/el-col&gt;<br>    &lt;/el-row&gt;<br>  &lt;/div&gt;<br>&lt;/template&gt;<br><br>&lt;script setup lang=&quot;ts&quot;&gt;<br>import &quot;./custom-element-ui.scss&quot;;<br>defineOptions(&#123;<br>  name: &quot;Dashboard&quot;,<br>  inheritAttrs: false,<br>&#125;);<br><br>// 图表数据<br>const chartData = ref([&quot;Charts&quot;, &quot;AnnualCharts&quot;]);<br>const chartComponent = (item: string) =&gt; &#123;<br>  return defineAsyncComponent(() =&gt; import(`./components/$&#123;item&#125;.vue`));<br>&#125;;<br>&lt;/script&gt;<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>带有权限 判断当前登录的人是否有这个权限 有则显示</p>
+<p>将 <code>v-if</code> 指令替换为 <code>v-show</code> 指令,应用在 <code>&lt;el-col&gt;</code> 元素上</p>
+<p><code>v-show</code> 指令会根据表达式的值来控制元素的显示和隐藏,但不会从 DOM 中移除元素，即使 <code>&lt;el-col&gt;</code> 元素不显示,它也不会占用空间,从而保持整体布局的美观</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><code class="hljs vue">&lt;!-- src\views\dashboard\index.vue --&gt;<br>&lt;template&gt;<br>  &lt;div class=&quot;dashboard-container&quot;&gt;<br>    &lt;!-- Echarts 图表 --&gt;<br>    &lt;el-row :gutter=&quot;10&quot; class=&quot;mt-3&quot;&gt;<br>      &lt;el-col<br>        :xs=&quot;24&quot;<br>        :sm=&quot;12&quot;<br>        :lg=&quot;12&quot;<br>        class=&quot;mb-2&quot;<br>        v-for=&quot;item in chartData&quot;<br>        :key=&quot;item&quot;<br>        v-show=&quot;hasPermission(&#x27;das:chart:view&#x27;)&quot;<br>      &gt;<br>        &lt;component<br>          :is=&quot;chartComponent(item)&quot;<br>          :id=&quot;item&quot;<br>          height=&quot;400px&quot;<br>          width=&quot;100%&quot;<br>          class=&quot;bg-[var(--el-bg-color-overlay)]&quot;<br>        /&gt;<br>      &lt;/el-col&gt;<br>    &lt;/el-row&gt;<br>  &lt;/div&gt;<br>&lt;/template&gt;<br><br>&lt;script setup lang=&quot;ts&quot;&gt;<br>import &quot;./custom-element-ui.scss&quot;;<br>defineOptions(&#123;<br>  name: &quot;Dashboard&quot;,<br>  inheritAttrs: false,<br>&#125;);<br><br>// 图表数据<br>const chartData = ref([&quot;Charts&quot;, &quot;AnnualCharts&quot;]);<br>// 图表组件加载函数<br>const hasPermission = (permission: string) =&gt; &#123;<br>  return userStore.user.perms.includes(permission);<br>&#125;;<br>// 按钮权限标识 das:chart:view <br>const chartComponent = (item: string) =&gt; &#123;<br>  if (hasPermission(&quot;das:chart:view&quot;)) &#123;<br>    return defineAsyncComponent(() =&gt; import(`./components/$&#123;item&#125;.vue`)); // 只有有权限时才加载组件<br>  &#125; else &#123;<br>    return null; // 如果没有权限，返回 null，不加载组件<br>  &#125;<br>&#125;;<br>&lt;/script&gt;<br></code></pre></td></tr></table></figure>
+
+<p>目录结构</p>
+<img src="125.png" srcset="/huyanqun.github.io/img/loading.gif" lazyload class="custom-img" />
+
+<p>效果图</p>
+<img src="124.png" srcset="/huyanqun.github.io/img/loading.gif" lazyload class="custom-img" />
+
+<h3 id="收入支出统计图"><a href="#收入支出统计图" class="headerlink" title="收入支出统计图"></a>收入支出统计图</h3><h4 id="月度统计"><a href="#月度统计" class="headerlink" title="月度统计"></a>月度统计</h4><p>示例代码</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br></pre></td><td class="code"><pre><code class="hljs vue">&lt;!-- src\views\dashboard\components\Charts.vue --&gt;<br>&lt;template&gt;<br>  &lt;el-card&gt;<br>    &lt;template #header&gt;<br>      &lt;div class=&quot;title&quot;&gt;<br>        月度统计<br>        &lt;el-tooltip effect=&quot;dark&quot; content=&quot;点击试试下载&quot; placement=&quot;bottom&quot;&gt;<br>          &lt;i-ep-download class=&quot;download&quot; @click=&quot;downloadEchart&quot; /&gt;<br>        &lt;/el-tooltip&gt;<br>      &lt;/div&gt;<br>    &lt;/template&gt;<br>    &lt;!-- 图表容器，使用传入的 props 设置 id、类名、宽度和高度 --&gt;<br>    &lt;div :id=&quot;id&quot; :class=&quot;className&quot; :style=&quot;&#123; height, width &#125;&quot;&gt;&lt;/div&gt;<br>  &lt;/el-card&gt;<br>&lt;/template&gt;<br><br>&lt;script setup lang=&quot;ts&quot;&gt;<br>import ExpensesAPI from &quot;@/api/expenses&quot;;<br>import * as echarts from &quot;echarts&quot;;<br>import &#123; ref, onMounted, onActivated, markRaw &#125; from &quot;vue&quot;;<br><br>// 定义组件的 props 默认值和类型检查<br>const props = defineProps(&#123;<br>  id: &#123;<br>    type: String,<br>    default: &quot;Charts&quot;, // 默认图表 ID<br>  &#125;,<br>  className: &#123;<br>    type: String,<br>    default: &quot;&quot;, // 默认类名为空字符串<br>  &#125;,<br>  width: &#123;<br>    type: String,<br>    default: &quot;200px&quot;,<br>    required: true, // 宽度是必填项<br>  &#125;,<br>  height: &#123;<br>    type: String,<br>    default: &quot;200px&quot;,<br>    required: true, // 高度是必填项<br>  &#125;,<br>&#125;);<br>// 初始化图表配置选项<br>const options = &#123;<br>  legend: &#123;<br>    data: [&quot;收入&quot;, &quot;支出&quot;], // 图例数据<br>  &#125;,<br>  tooltip: &#123;<br>    trigger: &quot;axis&quot;, // 提示框触发方式<br>    axisPointer: &#123;<br>      type: &quot;shadow&quot;, // 坐标轴指示器类型<br>    &#125;,<br>  &#125;,<br>  dataset: &#123;<br>    source: [], // 数据源，初始为空数组<br>  &#125;,<br>  xAxis: &#123;<br>    type: &quot;category&quot;, // 类目轴 ，x 轴<br>    // name: &quot;月份&quot;,<br>    nameLocation: &quot;middle&quot;, // 名称位置<br>    nameGap: 25, // 名称与轴线之间的距离<br>  &#125;,<br>  yAxis: &#123;<br>    type: &quot;value&quot;, // 数值轴 ，y 轴<br>    // name: &quot;金额&quot;,<br>    nameLocation: &quot;middle&quot;, // 名称位置<br>    nameGap: 35, // 名称与轴线之间的距离<br>  &#125;,<br>  series: [<br>    &#123;<br>      name: &quot;收入&quot;, // 系列名称<br>      type: &quot;bar&quot;, // 柱状图类型<br>      itemStyle: &#123;<br>        color: &quot;green&quot;, // 收入柱子的颜色<br>      &#125;,<br>    &#125;,<br>    &#123;<br>      name: &quot;支出&quot;,<br>      type: &quot;bar&quot;,<br>      itemStyle: &#123;<br>        color: &quot;blue&quot;, // 支出柱子的颜色<br>      &#125;,<br>    &#125;,<br>  ],<br>&#125;;<br>// 创建一个响应式的 chart 变量，用于存储 ECharts 实例<br>const chart = ref&lt;any&gt;(null);<br>// 当组件挂载时初始化图表<br>onMounted(() =&gt; &#123;<br>  // 初始化 ECharts 实例，并将其标记为原始对象以避免 Vue 的响应式系统干扰<br>  chart.value = markRaw(<br>    echarts.init(document.getElementById(props.id) as HTMLDivElement)<br>  );<br>  // 设置图表的初始配置选项<br>  chart.value.setOption(options);<br>  // 监听窗口大小变化事件，调整图表大小<br>  window.addEventListener(&quot;resize&quot;, () =&gt; &#123;<br>    chart.value.resize();<br>  &#125;);<br>  // 获取月度统计数据并更新图表<br>  monthStatistics();<br>&#125;);<br>// 当组件激活时调整图表大小<br>onActivated(() =&gt; &#123;<br>  if (chart.value) &#123;<br>    chart.value.resize();<br>  &#125;<br>&#125;);<br>// 异步函数，用于获取月度统计数据并更新图表数据源<br>const monthStatistics = async () =&gt; &#123;<br>  try &#123;<br>    // 调用 API 获取月度统计数据<br>    const res: any = await ExpensesAPI.monthStatistics();<br>    // 定义月份数组<br>    const months = [<br>      &quot;1月&quot;,<br>      &quot;2月&quot;,<br>      &quot;3月&quot;,<br>      &quot;4月&quot;,<br>      &quot;5月&quot;,<br>      &quot;6月&quot;,<br>      &quot;7月&quot;,<br>      &quot;8月&quot;,<br>      &quot;9月&quot;,<br>      &quot;10月&quot;,<br>      &quot;11月&quot;,<br>      &quot;12月&quot;,<br>    ];<br>    // 根据 API 返回的数据生成新的数据源<br>    const sourceData = months.map((month, index) =&gt; &#123;<br>      const data = res.find((item: any) =&gt; item.month === index + 1);<br>      return &#123;<br>        month,<br>        收入: data ? data.totalIncome : 0, // 如果有数据则取收入，否则为 0<br>        支出: data ? data.totalExpense : 0, // 如果有数据则取支出，否则为 0<br>      &#125;;<br>    &#125;);<br>    // 更新图表的数据源<br>    chart.value.setOption(&#123;<br>      dataset: &#123;<br>        source: sourceData,<br>      &#125;,<br>    &#125;);<br>  &#125; catch (error) &#123;<br>    console.error(&quot;获取月度统计数据失败&quot;, error);<br>  &#125;<br>&#125;;<br><br>const downloadEchart = () =&gt; &#123;<br>  // 获取画布图表地址信息<br>  const img = new Image();<br>  img.src = chart.value.getDataURL(&#123;<br>    type: &quot;png&quot;,<br>    pixelRatio: 1,<br>    backgroundColor: &quot;#fff&quot;,<br>  &#125;);<br>  // 当图片加载完成后，生成 URL 并下载<br>  img.onload = () =&gt; &#123;<br>    const canvas = document.createElement(&quot;canvas&quot;);<br>    canvas.width = img.width;<br>    canvas.height = img.height;<br>    const ctx = canvas.getContext(&quot;2d&quot;);<br>    if (ctx) &#123;<br>      ctx.drawImage(img, 0, 0, img.width, img.height);<br>      const link = document.createElement(&quot;a&quot;);<br>      link.download = `月度统计.png`;<br>      link.href = canvas.toDataURL(&quot;image/png&quot;, 0.9);<br>      document.body.appendChild(link);<br>      link.click();<br>      link.remove();<br>    &#125;<br>  &#125;;<br>&#125;;<br>&lt;/script&gt;<br><br>&lt;style lang=&quot;scss&quot; scoped&gt;<br>.title &#123;<br>  display: flex;<br>  justify-content: space-between;<br><br>  .download &#123;<br>    cursor: pointer;<br><br>    &amp;:hover &#123;<br>      color: #409eff;<br>    &#125;<br>  &#125;<br>&#125;<br>&lt;/style&gt;<br></code></pre></td></tr></table></figure>
+
+<p>接口返回数据结构</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs json"><span class="hljs-punctuation">[</span><br>  <span class="hljs-punctuation">&#123;</span> <span class="hljs-attr">&quot;month&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">1</span><span class="hljs-punctuation">,</span> <span class="hljs-attr">&quot;totalIncome&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">2222</span><span class="hljs-punctuation">,</span> <span class="hljs-attr">&quot;totalExpense&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">222</span> <span class="hljs-punctuation">&#125;</span><span class="hljs-punctuation">,</span><br>  <span class="hljs-punctuation">&#123;</span> <span class="hljs-attr">&quot;month&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">2</span><span class="hljs-punctuation">,</span> <span class="hljs-attr">&quot;totalIncome&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">3333</span><span class="hljs-punctuation">,</span> <span class="hljs-attr">&quot;totalExpense&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">444</span> <span class="hljs-punctuation">&#125;</span><span class="hljs-punctuation">,</span><br>  ...<br><span class="hljs-punctuation">]</span><br></code></pre></td></tr></table></figure>
+
+<p>图表的源数据</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs json"><span class="hljs-punctuation">[</span><br>  <span class="hljs-punctuation">&#123;</span> <span class="hljs-attr">&quot;month&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;1月&quot;</span><span class="hljs-punctuation">,</span> <span class="hljs-attr">&quot;收入&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">2222</span><span class="hljs-punctuation">,</span> <span class="hljs-attr">&quot;支出&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">222</span> <span class="hljs-punctuation">&#125;</span><span class="hljs-punctuation">,</span><br>  <span class="hljs-punctuation">&#123;</span> <span class="hljs-attr">&quot;month&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;2月&quot;</span><span class="hljs-punctuation">,</span> <span class="hljs-attr">&quot;收入&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">3333</span><span class="hljs-punctuation">,</span> <span class="hljs-attr">&quot;支出&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">444</span> <span class="hljs-punctuation">&#125;</span><span class="hljs-punctuation">,</span><br>  ...<br><span class="hljs-punctuation">]</span><br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>确保图表x轴显示月份，y轴显示金额值</p>
+</blockquote>
+<p>效果图</p>
+<img src="131.png" srcset="/huyanqun.github.io/img/loading.gif" lazyload class="custom-img" />
+
+<h4 id="年度统计"><a href="#年度统计" class="headerlink" title="年度统计"></a>年度统计</h4><p>示例代码</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br><span class="line">278</span><br><span class="line">279</span><br><span class="line">280</span><br><span class="line">281</span><br><span class="line">282</span><br><span class="line">283</span><br><span class="line">284</span><br><span class="line">285</span><br><span class="line">286</span><br><span class="line">287</span><br><span class="line">288</span><br><span class="line">289</span><br><span class="line">290</span><br><span class="line">291</span><br><span class="line">292</span><br><span class="line">293</span><br><span class="line">294</span><br><span class="line">295</span><br><span class="line">296</span><br><span class="line">297</span><br><span class="line">298</span><br><span class="line">299</span><br><span class="line">300</span><br><span class="line">301</span><br><span class="line">302</span><br><span class="line">303</span><br><span class="line">304</span><br><span class="line">305</span><br><span class="line">306</span><br><span class="line">307</span><br><span class="line">308</span><br><span class="line">309</span><br><span class="line">310</span><br><span class="line">311</span><br><span class="line">312</span><br><span class="line">313</span><br><span class="line">314</span><br><span class="line">315</span><br><span class="line">316</span><br><span class="line">317</span><br><span class="line">318</span><br><span class="line">319</span><br><span class="line">320</span><br><span class="line">321</span><br><span class="line">322</span><br><span class="line">323</span><br></pre></td><td class="code"><pre><code class="hljs vue">&lt;!-- src\views\dashboard\components\AnnualCharts.vue --&gt;<br>&lt;template&gt;<br>  &lt;el-card&gt;<br>    &lt;template #header&gt;<br>      &lt;div class=&quot;title&quot;&gt;<br>        年度统计<br>        &lt;el-tooltip effect=&quot;dark&quot; content=&quot;点击试试下载&quot; placement=&quot;bottom&quot;&gt;<br>          &lt;i-ep-download class=&quot;download&quot; @click=&quot;downloadEchart&quot; /&gt;<br>        &lt;/el-tooltip&gt;<br>      &lt;/div&gt;<br>    &lt;/template&gt;<br><br>    &lt;div :id=&quot;id&quot; :class=&quot;className&quot; :style=&quot;&#123; height, width &#125;&quot;&gt;&lt;/div&gt;<br>  &lt;/el-card&gt;<br>&lt;/template&gt;<br><br>&lt;script setup lang=&quot;ts&quot;&gt;<br>import ExpensesAPI from &quot;@/api/expenses&quot;;<br>import * as echarts from &quot;echarts&quot;;<br>import &#123; ref, onMounted, onActivated, markRaw &#125; from &quot;vue&quot;;<br><br>const props = defineProps(&#123;<br>  id: &#123;<br>    type: String,<br>    default: &quot;AnnualCharts&quot;,<br>  &#125;,<br>  className: &#123;<br>    type: String,<br>    default: &quot;&quot;,<br>  &#125;,<br>  width: &#123;<br>    type: String,<br>    default: &quot;200px&quot;,<br>    required: true,<br>  &#125;,<br>  height: &#123;<br>    type: String,<br>    default: &quot;200px&quot;,<br>    required: true,<br>  &#125;,<br>&#125;);<br><br>const currentYear = new Date().getFullYear().toString();<br>// const years = [&quot;2021&quot;, &quot;2022&quot;, &quot;2023&quot;, &quot;2024&quot;, &quot;2025&quot;];<br>let years: string[] = [];<br>// const defaultYearIndex =<br>//   years.indexOf(currentYear) !== -1 ? years.indexOf(currentYear) : 0;<br>let defaultYearIndex = 0; // 默认选中第一个年份<br><br>const options = &#123;<br>  legend: &#123;<br>    data: [&quot;收入&quot;, &quot;支出&quot;],<br>  &#125;,<br>  tooltip: &#123;<br>    trigger: &quot;axis&quot;,<br>    showContent: true,<br>  &#125;,<br>  dataset: &#123;<br>    source: [],<br>  &#125;,<br>  xAxis: &#123;<br>    type: &quot;category&quot;,<br>    data: [] as string[], // 动态设置 xAxis 数据<br>  &#125;,<br>  yAxis: &#123; gridIndex: 0 &#125;,<br>  grid: &#123; top: &quot;55%&quot; &#125;,<br>  series: [<br>    &#123;<br>      type: &quot;line&quot;,<br>      smooth: true,<br>      seriesLayoutBy: &quot;row&quot;,<br>      emphasis: &#123; focus: &quot;series&quot; &#125;,<br>      itemStyle: &#123;<br>        color: &quot;green&quot;,<br>      &#125;,<br>    &#125;,<br>    &#123;<br>      type: &quot;line&quot;,<br>      smooth: true,<br>      seriesLayoutBy: &quot;row&quot;,<br>      emphasis: &#123; focus: &quot;series&quot; &#125;,<br>      itemStyle: &#123;<br>        color: &quot;blue&quot;,<br>      &#125;,<br>    &#125;,<br>    &#123;<br>      type: &quot;pie&quot;,<br>      id: &quot;pie&quot;,<br>      radius: &quot;30%&quot;,<br>      center: [&quot;50%&quot;, &quot;25%&quot;],<br>      emphasis: &#123;<br>        focus: &quot;self&quot;,<br>      &#125;,<br>      label: &#123;<br>        formatter: `&#123;b&#125;: &#123;@$&#123;years[defaultYearIndex]&#125;&#125; (&#123;d&#125;%)`,<br>      &#125;,<br>      encode: &#123;<br>        itemName: &quot;product&quot;,<br>        value: defaultYearIndex + 1,<br>        tooltip: defaultYearIndex + 1,<br>      &#125;,<br>      itemStyle: &#123;<br>        color: function (params: any) &#123;<br>          if (params.name === &quot;收入&quot;) &#123;<br>            return &quot;green&quot;;<br>          &#125; else if (params.name === &quot;支出&quot;) &#123;<br>            return &quot;blue&quot;;<br>          &#125;<br>          return &quot;#ccc&quot;; // 默认颜色<br>        &#125;,<br>      &#125;,<br>    &#125;,<br>  ],<br>&#125;;<br><br>const chart = ref&lt;any&gt;(&quot;&quot;);<br><br>// 异步函数，用于获取年度统计数据并更新图表数据源<br>const annualStatistics = async () =&gt; &#123;<br>  try &#123;<br>    // 调用 API 获取年度统计数据<br>    const res: any = await ExpensesAPI.annualStatistics();<br>    // console.log(&quot;获取到的数据:&quot;, res);<br>    // 生成年份数组<br>    const years = res.map((item: any) =&gt; item.year.toString());<br>    // console.log(&quot;生成的年份数组:&quot;, years); <br>    // 确保年份按升序排列<br>    years.sort((a: string, b: string) =&gt; parseInt(a) - parseInt(b));<br><br>    // 更新默认选中的年份索引<br>    defaultYearIndex =<br>      years.indexOf(currentYear) !== -1 ? years.indexOf(currentYear) : 0;<br><br>    // 生成数据源<br>    const sourceData = [<br>      [&quot;product&quot;, ...years],<br>      [<br>        &quot;收入&quot;,<br>        ...years.map((year: string) =&gt; &#123;<br>          const data = res.find((item: any) =&gt; item.year.toString() === year);<br>          return data ? data.totalIncome : 0;<br>        &#125;),<br>      ],<br>      [<br>        &quot;支出&quot;,<br>        ...years.map((year: string) =&gt; &#123;<br>          const data = res.find((item: any) =&gt; item.year.toString() === year);<br>          return data ? data.totalExpense : 0;<br>        &#125;),<br>      ],<br>    ];<br><br>    // console.log(&quot;处理后的数据:&quot;, sourceData);<br><br>    // 初始化图表<br>    chart.value = markRaw(<br>      echarts.init(document.getElementById(props.id) as HTMLDivElement)<br>    );<br><br>    // 设置默认选中的年份<br>    const defaultMarkLineData = [<br>      &#123;<br>        xAxis: defaultYearIndex,<br>        lineStyle: &#123;<br>          color: &quot;red&quot;,<br>          type: &quot;dashed&quot;,<br>        &#125;,<br>        label: &#123;<br>          show: false, // 隐藏标签<br>        &#125;,<br>      &#125;,<br>    ];<br><br>    // 更新图表<br>    chart.value.setOption(&#123;<br>      ...options,<br>      xAxis: &#123;<br>        type: &quot;category&quot;,<br>        data: years, // 动态设置 xAxis 数据<br>      &#125;,<br>      dataset: &#123;<br>        source: sourceData,<br>      &#125;,<br>      series: [<br>        ...options.series.slice(0, 2).map((series, index) =&gt; (&#123;<br>          ...series,<br>          markLine: &#123;<br>            data: defaultMarkLineData,<br>          &#125;,<br>        &#125;)),<br>        // options.series[2],<br>        &#123;<br>          ...options.series[2],<br>          label: &#123;<br>            formatter: `&#123;b&#125;: &#123;@$&#123;years[defaultYearIndex]&#125;&#125; (&#123;d&#125;%)`,<br>          &#125;,<br>          encode: &#123;<br>            itemName: &quot;product&quot;,<br>            value: defaultYearIndex + 1,<br>            tooltip: defaultYearIndex + 1,<br>          &#125;,<br>        &#125;,<br>      ],<br>    &#125;);<br><br>    // 监听 resize<br>    window.addEventListener(&quot;resize&quot;, () =&gt; &#123;<br>      chart.value?.resize();<br>    &#125;);<br><br>    // 监听 updateAxisPointer<br>    chart.value.on(&quot;updateAxisPointer&quot;, (event: any) =&gt; &#123;<br>      const xAxisInfo = event.axesInfo[0];<br>      if (xAxisInfo) &#123;<br>        const dimension = xAxisInfo.value + 1;<br>        // 检查 dimension 是否在有效范围内<br>        if (dimension &lt; 1 || dimension &gt; years.length) &#123;<br>          console.error(&quot;索引超出有效范围&quot;);<br>          return;<br>        &#125;<br>        const markLineData = [<br>          &#123;<br>            xAxis: xAxisInfo.value,<br>            lineStyle: &#123;<br>              color: &quot;red&quot;,<br>              type: &quot;dashed&quot;,<br>            &#125;,<br>            label: &#123;<br>              show: false, // 隐藏标签<br>            &#125;,<br>          &#125;,<br>        ];<br><br>        chart.value.setOption(&#123;<br>          series: [<br>            ...options.series.slice(0, 2).map((series, index) =&gt; (&#123;<br>              ...series,<br>              markLine: &#123;<br>                data: markLineData,<br>              &#125;,<br>            &#125;)),<br>            &#123;<br>              id: &quot;pie&quot;,<br>              label: &#123;<br>                formatter: `&#123;b&#125;: &#123;@$&#123;years[dimension - 1]&#125;&#125; (&#123;d&#125;%)`,<br>              &#125;,<br>              encode: &#123;<br>                value: dimension,<br>                tooltip: dimension,<br>              &#125;,<br>              itemStyle: &#123;<br>                color: function (params: any) &#123;<br>                  if (params.name === &quot;收入&quot;) &#123;<br>                    return &quot;green&quot;;<br>                  &#125; else if (params.name === &quot;支出&quot;) &#123;<br>                    return &quot;blue&quot;;<br>                  &#125;<br>                  return &quot;#ccc&quot;; // 默认颜色<br>                &#125;,<br>              &#125;,<br>            &#125;,<br>          ],<br>        &#125;);<br>      &#125;<br>    &#125;);<br>  &#125; catch (error) &#123;<br>    console.error(&quot;获取统计数据失败&quot;, error);<br>  &#125;<br>&#125;;<br><br>onMounted(() =&gt; &#123;<br>  // 调用 annualStatistics 函数获取数据并更新图表<br>  annualStatistics();<br>&#125;);<br><br>onActivated(() =&gt; &#123;<br>  if (chart.value) &#123;<br>    chart.value.resize();<br>  &#125;<br>&#125;);<br><br>const downloadEchart = () =&gt; &#123;<br>  // 获取画布图表地址信息<br>  const img = new Image();<br>  img.src = chart.value.getDataURL(&#123;<br>    type: &quot;png&quot;,<br>    pixelRatio: 1,<br>    backgroundColor: &quot;#fff&quot;,<br>  &#125;);<br>  // 当图片加载完成后，生成 URL 并下载<br>  img.onload = () =&gt; &#123;<br>    const canvas = document.createElement(&quot;canvas&quot;);<br>    canvas.width = img.width;<br>    canvas.height = img.height;<br>    const ctx = canvas.getContext(&quot;2d&quot;);<br>    if (ctx) &#123;<br>      ctx.drawImage(img, 0, 0, img.width, img.height);<br>      const link = document.createElement(&quot;a&quot;);<br>      link.download = `年度统计.png`;<br>      link.href = canvas.toDataURL(&quot;image/png&quot;, 0.9);<br>      document.body.appendChild(link);<br>      link.click();<br>      link.remove();<br>    &#125;<br>  &#125;;<br>&#125;;<br>&lt;/script&gt;<br><br>&lt;style lang=&quot;scss&quot; scoped&gt;<br>.title &#123;<br>  display: flex;<br>  justify-content: space-between;<br><br>  .download &#123;<br>    cursor: pointer;<br><br>    &amp;:hover &#123;<br>      color: #409eff;<br>    &#125;<br>  &#125;<br>&#125;<br>&lt;/style&gt;<br><br></code></pre></td></tr></table></figure>
+
+<p>接口返回的数据</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs json"><span class="hljs-punctuation">[</span><br>  <span class="hljs-punctuation">&#123;</span><br>    <span class="hljs-attr">&quot;year&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">2025</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-attr">&quot;totalIncome&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">2666</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-attr">&quot;totalExpense&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">1466</span><br>  <span class="hljs-punctuation">&#125;</span><span class="hljs-punctuation">,</span><br>  <span class="hljs-punctuation">&#123;</span><br>    <span class="hljs-attr">&quot;year&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">2024</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-attr">&quot;totalIncome&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-attr">&quot;totalExpense&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0</span><br>  <span class="hljs-punctuation">&#125;</span><span class="hljs-punctuation">,</span><br>  <span class="hljs-punctuation">&#123;</span><br>    <span class="hljs-attr">&quot;year&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">2023</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-attr">&quot;totalIncome&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-attr">&quot;totalExpense&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0</span><br>  <span class="hljs-punctuation">&#125;</span><span class="hljs-punctuation">,</span><br>  ...<br><span class="hljs-punctuation">]</span><br></code></pre></td></tr></table></figure>
+
+<p>图表的源数据</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs json"><span class="hljs-punctuation">[</span><br>    <span class="hljs-punctuation">[</span><br>        <span class="hljs-string">&quot;product&quot;</span><span class="hljs-punctuation">,</span><br>        ...<br>        <span class="hljs-string">&quot;2023&quot;</span><span class="hljs-punctuation">,</span><br>        <span class="hljs-string">&quot;2024&quot;</span><span class="hljs-punctuation">,</span><br>        <span class="hljs-string">&quot;2025&quot;</span><br>    <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-punctuation">[</span><br>        <span class="hljs-string">&quot;收入&quot;</span><span class="hljs-punctuation">,</span><br>        ...<br>        <span class="hljs-number">0</span><span class="hljs-punctuation">,</span><br>        <span class="hljs-number">0</span><span class="hljs-punctuation">,</span><br>        <span class="hljs-number">2666</span><br>    <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-punctuation">[</span><br>        <span class="hljs-string">&quot;支出&quot;</span><span class="hljs-punctuation">,</span><br>        ...<br>        <span class="hljs-number">0</span><span class="hljs-punctuation">,</span><br>        <span class="hljs-number">0</span><span class="hljs-punctuation">,</span><br>        <span class="hljs-number">1466</span><br>    <span class="hljs-punctuation">]</span><br><span class="hljs-punctuation">]</span><br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>x轴的年份是后端数据接口返回的 跟月度不一样 月度不管是那一年都是那几个月 但是年度会改变 所以年份要获取后端的数据</p>
+</blockquote>
+<p>效果图</p>
+<img src="151.png" srcset="/huyanqun.github.io/img/loading.gif" lazyload class="custom-img" />
+
+<h4 id="支付方式统计"><a href="#支付方式统计" class="headerlink" title="支付方式统计"></a>支付方式统计</h4><blockquote>
+<p>支付方式的统计每半年统计一次 分为上半年和下半年 可以切换显示 默认显示的是当前时间段的 也就是说如果当前时间段属于上半年那么显示的就是上半年的数据 反之亦然</p>
+</blockquote>
+<p>示例代码</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br></pre></td><td class="code"><pre><code class="hljs vue">&lt;!-- src\views\dashboard\components\ClassifyCharts.vue --&gt;<br>&lt;template&gt;<br>  &lt;el-card&gt;<br>    &lt;template #header&gt;<br>      &lt;div class=&quot;title&quot;&gt;<br>        &lt;div&gt;<br>          支付分类统计<br>          &lt;el-select<br>            v-model=&quot;selectedPeriod&quot;<br>            @change=&quot;classifyCharts&quot;<br>            placeholder=&quot;选择时间段&quot;<br>          &gt;<br>            &lt;el-option<br>              v-for=&quot;period in timePeriods&quot;<br>              :key=&quot;period.value&quot;<br>              :label=&quot;period.label&quot;<br>              :value=&quot;period.value&quot;<br>            /&gt;<br>          &lt;/el-select&gt;<br>        &lt;/div&gt;<br>        &lt;el-tooltip effect=&quot;dark&quot; content=&quot;点击试试下载&quot; placement=&quot;bottom&quot;&gt;<br>          &lt;i-ep-download class=&quot;download&quot; @click=&quot;downloadEchart&quot; /&gt;<br>        &lt;/el-tooltip&gt;<br>      &lt;/div&gt;<br>    &lt;/template&gt;<br>    &lt;!-- 图表容器，使用传入的 props 设置 id、类名、宽度和高度 --&gt;<br>    &lt;div :id=&quot;id&quot; :class=&quot;className&quot; :style=&quot;&#123; height, width &#125;&quot;&gt;&lt;/div&gt;<br>  &lt;/el-card&gt;<br>&lt;/template&gt;<br><br>&lt;script setup lang=&quot;ts&quot;&gt;<br>import ExpensesAPI from &quot;@/api/expenses&quot;;<br>import * as echarts from &quot;echarts&quot;;<br><br>// 定义组件的 props 默认值和类型检查<br>const props = defineProps(&#123;<br>  id: &#123;<br>    type: String,<br>    default: &quot;ClassifyCharts&quot;, // 默认图表 ID<br>  &#125;,<br>  className: &#123;<br>    type: String,<br>    default: &quot;&quot;, // 默认类名为空字符串<br>  &#125;,<br>  width: &#123;<br>    type: String,<br>    default: &quot;200px&quot;,<br>    required: true, // 宽度是必填项<br>  &#125;,<br>  height: &#123;<br>    type: String,<br>    default: &quot;200px&quot;,<br>    required: true, // 高度是必填项<br>  &#125;,<br>&#125;);<br>// 选择的时间段<br>const selectedPeriod = ref();<br>// 定义时间段类型<br>interface TimePeriod &#123;<br>  label: string;<br>  value: number;<br>&#125;<br>// 动态生成时间段<br>const timePeriods = ref&lt;TimePeriod[]&gt;([]);<br><br>// 生成时间段<br>const generateTimePeriods = () =&gt; &#123;<br>  const currentYear = new Date().getFullYear(); // 获取当前年份<br>  // console.log(currentYear);<br>  timePeriods.value = [<br>    &#123;<br>      label: `$&#123;currentYear&#125;年上半年`,<br>      value: 1,<br>    &#125;,<br>    &#123;<br>      label: `$&#123;currentYear&#125;年下半年`,<br>      value: 2,<br>    &#125;,<br>  ];<br>&#125;;<br><br>// 初始化图表配置选项<br>const options = &#123;<br>  tooltip: &#123;<br>    trigger: &quot;item&quot;,<br>  &#125;,<br>  legend: &#123;<br>    top: &quot;5%&quot;,<br>    left: &quot;center&quot;,<br>  &#125;,<br>  series: [<br>    &#123;<br>      // name: &quot;Access From&quot;,<br>      type: &quot;pie&quot;,<br>      radius: [&quot;40%&quot;, &quot;70%&quot;],<br>      avoidLabelOverlap: false,<br>      itemStyle: &#123;<br>        borderRadius: 10,<br>        borderColor: &quot;#fff&quot;,<br>        borderWidth: 2,<br>      &#125;,<br>      label: &#123;<br>        show: false,<br>        position: &quot;center&quot;,<br>      &#125;,<br>      emphasis: &#123;<br>        label: &#123;<br>          show: true,<br>          fontSize: 40,<br>          fontWeight: &quot;bold&quot;,<br>        &#125;,<br>      &#125;,<br>      labelLine: &#123;<br>        show: false,<br>      &#125;,<br>      data: [<br>        &#123; value: 0, name: &quot;微信&quot; &#125;,<br>        &#123; value: 0, name: &quot;现金&quot; &#125;,<br>        &#123; value: 0, name: &quot;信用卡&quot; &#125;,<br>        &#123; value: 0, name: &quot;支付宝&quot; &#125;,<br>      ],<br>    &#125;,<br>  ],<br>&#125;;<br><br>// 创建一个响应式的 chart 变量，用于存储 ECharts 实例<br>const chart = ref&lt;any&gt;(null);<br><br>// 当组件挂载时初始化图表<br>onMounted(() =&gt; &#123;<br>  // 初始化 ECharts 实例，并将其标记为原始对象以避免 Vue 的响应式系统干扰<br>  chart.value = markRaw(<br>    echarts.init(document.getElementById(props.id) as HTMLDivElement)<br>  );<br>  // 设置图表的初始配置选项<br>  chart.value.setOption(options);<br>  // 监听窗口大小变化事件，调整图表大小<br>  window.addEventListener(&quot;resize&quot;, () =&gt; &#123;<br>    chart.value.resize();<br>  &#125;);<br>  generateTimePeriods(); // 生成时间段<br>  // 设置默认选中当前时间段<br>  const currentMonth = new Date().getMonth(); // 0-11<br>  selectedPeriod.value = currentMonth &lt; 6 ? 1 : 2; // 上半年或下半年<br>  // 获取数据并更新图表<br>  classifyCharts();<br>&#125;);<br><br>// 当组件激活时调整图表大小<br>onActivated(() =&gt; &#123;<br>  if (chart.value) &#123;<br>    chart.value.resize();<br>  &#125;<br>&#125;);<br><br>const classifyCharts = async () =&gt; &#123;<br>  const timePeriod =<br>    selectedPeriod.value || (new Date().getMonth() &lt; 6 ? &quot;1&quot; : &quot;2&quot;); // 默认选择当前时间段<br>  // console.log(&quot;timePeriod:&quot;, timePeriod);<br>  try &#123;<br>    const data: any = await ExpensesAPI.classifyStatistics(timePeriod); // 直接传递时间段的代表数字<br>    const chartData = [<br>      &#123;<br>        value:<br>          data.find((item: any) =&gt; item.expenseType === 1)?.totalExpense || 0,<br>        name: &quot;微信&quot;,<br>      &#125;,<br>      &#123;<br>        value:<br>          data.find((item: any) =&gt; item.expenseType === 4)?.totalExpense || 0,<br>        name: &quot;现金&quot;,<br>      &#125;,<br>      &#123;<br>        value:<br>          data.find((item: any) =&gt; item.expenseType === 3)?.totalExpense || 0,<br>        name: &quot;信用卡&quot;,<br>      &#125;,<br>      &#123;<br>        value:<br>          data.find((item: any) =&gt; item.expenseType === 2)?.totalExpense || 0,<br>        name: &quot;支付宝&quot;,<br>      &#125;,<br>    ];<br>    chart.value.setOption(&#123;<br>      series: [<br>        &#123;<br>          data: chartData,<br>        &#125;,<br>      ],<br>    &#125;);<br>  &#125; catch (error) &#123;<br>    console.error(&quot;获取统计数据失败&quot;, error);<br>  &#125;<br>&#125;;<br><br>const downloadEchart = () =&gt; &#123;<br>  // 获取画布图表地址信息<br>  const img = new Image();<br>  img.src = chart.value.getDataURL(&#123;<br>    type: &quot;png&quot;,<br>    pixelRatio: 1,<br>    backgroundColor: &quot;#fff&quot;,<br>  &#125;);<br>  // 当图片加载完成后，生成 URL 并下载<br>  img.onload = () =&gt; &#123;<br>    const canvas = document.createElement(&quot;canvas&quot;);<br>    canvas.width = img.width;<br>    canvas.height = img.height;<br>    const ctx = canvas.getContext(&quot;2d&quot;);<br>    if (ctx) &#123;<br>      ctx.drawImage(img, 0, 0, img.width, img.height);<br>      const link = document.createElement(&quot;a&quot;);<br>      link.download = `支付分类统计.png`;<br>      link.href = canvas.toDataURL(&quot;image/png&quot;, 0.9);<br>      document.body.appendChild(link);<br>      link.click();<br>      link.remove();<br>    &#125;<br>  &#125;;<br>&#125;;<br>&lt;/script&gt;<br><br>&lt;style lang=&quot;scss&quot; scoped&gt;<br>.title &#123;<br>  display: flex;<br>  align-items: center;<br>  justify-content: space-between;<br><br>  .download &#123;<br>    cursor: pointer;<br><br>    &amp;:hover &#123;<br>      color: #409eff;<br>    &#125;<br>  &#125;<br><br>  .el-select &#123;<br>    width: 150px;<br>  &#125;<br>&#125;<br>&lt;/style&gt;<br></code></pre></td></tr></table></figure>
+
+<p>接口返回的数据</p>
+<blockquote>
+<p>请求接口的时候需要携带参数 也就是上半年和下半年 （1代表上半年 2代表下半年）</p>
+<p>如果哪一项没有产生支出数据那么接口则不返回 如果都没有则返回一个空数组</p>
+</blockquote>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs json"><span class="hljs-punctuation">[</span><br>    <span class="hljs-punctuation">&#123;</span><br>        <span class="hljs-attr">&quot;expenseType&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">2</span><span class="hljs-punctuation">,</span><br>        <span class="hljs-attr">&quot;totalExpense&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">30</span><br>    <span class="hljs-punctuation">&#125;</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-punctuation">&#123;</span><br>        <span class="hljs-attr">&quot;expenseType&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">3</span><span class="hljs-punctuation">,</span><br>        <span class="hljs-attr">&quot;totalExpense&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">44</span><br>    <span class="hljs-punctuation">&#125;</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-punctuation">&#123;</span><br>        <span class="hljs-attr">&quot;expenseType&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">4</span><span class="hljs-punctuation">,</span><br>        <span class="hljs-attr">&quot;totalExpense&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">222</span><br>    <span class="hljs-punctuation">&#125;</span><br><span class="hljs-punctuation">]</span><br></code></pre></td></tr></table></figure>
+
+<p>图表的源数据</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs json"><span class="hljs-punctuation">[</span><br>	<span class="hljs-punctuation">&#123;</span> value<span class="hljs-punctuation">:</span> <span class="hljs-number">0</span><span class="hljs-punctuation">,</span> name<span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;微信&quot;</span> <span class="hljs-punctuation">&#125;</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-punctuation">&#123;</span> value<span class="hljs-punctuation">:</span> <span class="hljs-number">0</span><span class="hljs-punctuation">,</span> name<span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;支付宝&quot;</span> <span class="hljs-punctuation">&#125;</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-punctuation">&#123;</span> value<span class="hljs-punctuation">:</span> <span class="hljs-number">0</span><span class="hljs-punctuation">,</span> name<span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;信用卡&quot;</span> <span class="hljs-punctuation">&#125;</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-punctuation">&#123;</span> value<span class="hljs-punctuation">:</span> <span class="hljs-number">0</span><span class="hljs-punctuation">,</span> name<span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;现金&quot;</span> <span class="hljs-punctuation">&#125;</span><span class="hljs-punctuation">,</span><br><span class="hljs-punctuation">]</span><br></code></pre></td></tr></table></figure>
+
+<p>效果图</p>
+<blockquote>
+<p>此图中微信没有数据所以不显示</p>
+</blockquote>
+<img src="114.png" srcset="/huyanqun.github.io/img/loading.gif" lazyload class="custom-img" />
+
+<blockquote>
+<p>这个图里面选择的是下半年现在则是上半年 所以没有数据 接口返回的是空数组 展示的是默认的源数据</p>
+</blockquote>
+<img src="105.png" srcset="/huyanqun.github.io/img/loading.gif" lazyload class="custom-img" />
+
+<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><blockquote>
+<p>后续如果还想要在首页添加图表 直接在  <code>src\views\dashboard\components</code> 目录下面新建文件就可以</p>
+<p>然后直接在首页的图表数据里面添加要添加的新图表文件</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">// 图表数据</span><br><span class="hljs-keyword">const</span> chartData = <span class="hljs-title function_">ref</span>([<br>  <span class="hljs-string">&quot;Charts&quot;</span>,<br>  <span class="hljs-string">&quot;QuarterlyCharts&quot;</span>,<br>  <span class="hljs-string">&quot;AnnualCharts&quot;</span>,<br>  <span class="hljs-string">&quot;ClassifyCharts&quot;</span>,<br>  ...<br>]);<br></code></pre></td></tr></table></figure>
+
+<p>每个 Echarts 图表 都有自己定义的源数据 <code>图表不一样 源数据就不一样</code> 虽然接口返回的数据格式都是一样的 但是需要处理成图表源数据的格式才可以 如果使用同一个图表那么只要改变一下接口 获取相应的数据在渲染就可以 比如 季度 就采用了和月度一样的图表 </p>
+<p>【示例】</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">// 异步函数，用于获取季度统计数据并更新图表数据源</span><br><span class="hljs-keyword">const</span> <span class="hljs-title function_">quarterStatistics</span> = <span class="hljs-keyword">async</span> (<span class="hljs-params"></span>) =&gt; &#123;<br>  <span class="hljs-keyword">try</span> &#123;<br>    <span class="hljs-comment">// 调用 API 获取月度统计数据</span><br>    <span class="hljs-keyword">const</span> <span class="hljs-attr">res</span>: any = <span class="hljs-keyword">await</span> <span class="hljs-title class_">ExpensesAPI</span>.<span class="hljs-title function_">quarterStatistics</span>();<br>    <span class="hljs-comment">// 定义季度数组</span><br>    <span class="hljs-keyword">const</span> quarters = [<br>      <span class="hljs-string">&quot;第一季度&quot;</span>,<br>      <span class="hljs-string">&quot;第二季度&quot;</span>,<br>      <span class="hljs-string">&quot;第三季度&quot;</span>,<br>      <span class="hljs-string">&quot;第四季度&quot;</span>,<br>    ];<br>    <span class="hljs-comment">// 根据 API 返回的数据生成新的数据源</span><br>    <span class="hljs-keyword">const</span> sourceData = quarters.<span class="hljs-title function_">map</span>(<span class="hljs-function">(<span class="hljs-params">quarter, index</span>) =&gt;</span> &#123;<br>      <span class="hljs-keyword">const</span> data = res.<span class="hljs-title function_">find</span>(<span class="hljs-function">(<span class="hljs-params">item: any</span>) =&gt;</span> item.<span class="hljs-property">quarter</span> === index + <span class="hljs-number">1</span>);<br>      <span class="hljs-keyword">return</span> &#123;<br>        quarter,<br>        收入: data ? data.<span class="hljs-property">totalIncome</span> : <span class="hljs-number">0</span>, <span class="hljs-comment">// 如果有数据则取收入，否则为 0</span><br>        支出: data ? data.<span class="hljs-property">totalExpense</span> : <span class="hljs-number">0</span>, <span class="hljs-comment">// 如果有数据则取支出，否则为 0</span><br>      &#125;;<br>    &#125;);<br>    <span class="hljs-comment">// 更新图表的数据源</span><br>    chart.<span class="hljs-property">value</span>.<span class="hljs-title function_">setOption</span>(&#123;<br>      <span class="hljs-attr">dataset</span>: &#123;<br>        <span class="hljs-attr">source</span>: sourceData,<br>      &#125;,<br>    &#125;);<br>  &#125; <span class="hljs-keyword">catch</span> (error) &#123;<br>    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">error</span>(<span class="hljs-string">&quot;获取统计数据失败&quot;</span>, error);<br>  &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>只要把 月度的方法 monthStatistics 换成 季度的 quarterStatistics 就可以了 当前了 这样要保证后端返回的数据格式也要跟月度是一样的</p>
+</blockquote>
+<p>效果图</p>
+<img src="225.png" srcset="/huyanqun.github.io/img/loading.gif" lazyload class="custom-img" />
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/huyanqun.github.io/categories/Web/" class="category-chain-item">Web</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/huyanqun.github.io/tags/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/" class="print-no-link">#数据可视化</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Echarts图表使用</div>
+      <div>https://kitenx.github.io/huyanqun.github.io/2025/01/07/Echarts图表使用/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>John Doe</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2025年1月7日</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>更新于</div>
+          <div>2025年2月12日</div>
+        </div>
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/huyanqun.github.io/2025/01/10/%E5%9F%BA%E4%BA%8ENodeJs%E5%92%8CExpress%E6%90%AD%E5%BB%BA%E6%9C%AC%E5%9C%B0%E6%B5%8B%E8%AF%95%E6%9C%8D%E5%8A%A1%E5%99%A8/" title="基于NodeJs和Express搭建本地测试服务器">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">基于NodeJs和Express搭建本地测试服务器</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/huyanqun.github.io/2025/01/03/el-date-picker%E9%9A%90%E8%97%8F%E5%B9%B4%EF%BC%8C%E4%BB%85%E6%98%BE%E7%A4%BA%E6%9C%88%E6%97%A5/" title="el-date-picker隐藏年，仅显示月日">
+                        <span class="hidden-mobile">el-date-picker隐藏年，仅显示月日</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#comments', function() {
+      var light = 'github-light';
+      var dark = 'github-dark';
+      var schema = document.documentElement.getAttribute('data-user-color-scheme');
+      if (schema === 'dark') {
+        schema = dark;
+      } else {
+        schema = light;
+      }
+      window.UtterancesThemeLight = light;
+      window.UtterancesThemeDark = dark;
+      var s = document.createElement('script');
+      s.setAttribute('src', 'https://utteranc.es/client.js');
+      s.setAttribute('repo', 'KiteNX/comment-utterances');
+      s.setAttribute('issue-term', 'pathname');
+      
+      s.setAttribute('label', 'utterances');
+      
+      s.setAttribute('theme', schema);
+      s.setAttribute('crossorigin', 'anonymous');
+      document.getElementById('comments').appendChild(s);
+    })
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> <div>Copyright © 2024 HuYanQun</div> 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/huyanqun.github.io/js/events.js" ></script>
+<script  src="/huyanqun.github.io/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/huyanqun.github.io/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/huyanqun.github.io/js/local-search.js" ></script>
+
+
+
+
+  
+<script src="/huyanqun.github.io/js/DynamicRibbon.js"></script>
+<script src="/huyanqun.github.io/js/DynamicLine.js"></script>
+<script src="/huyanqun.github.io/js/snowflake.js"></script>
+<script src="/huyanqun.github.io/js/Cherry.js"></script>
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/huyanqun.github.io/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

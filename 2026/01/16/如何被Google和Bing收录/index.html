@@ -1,0 +1,837 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/huyanqun.github.io/img/fluid.png">
+  <link rel="icon" href="/huyanqun.github.io/img/fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="在使用 Hexo 搭建个人博客后，很多人都会遇到一个问题网站已经上线，但在 Google &#x2F; Bing 搜索中却完全搜不到  Hexo 博客为什么默认搜不到Hexo 是一个纯静态站点生成器，本身不具备自动推送搜索引擎的能力：  ❌ 没有后端接口 ❌ 不会主动通知搜索引擎 ❌ 新站点权重极低  所以如果什么都不做，搜索引擎只能靠“偶然爬取”，速度非常慢，甚至长期不收录。 上线前的基础准备">
+<meta property="og:type" content="article">
+<meta property="og:title" content="如何被Google和Bing收录">
+<meta property="og:url" content="https://kitenx.github.io/huyanqun.github.io/2026/01/16/%E5%A6%82%E4%BD%95%E8%A2%ABGoogle%E5%92%8CBing%E6%94%B6%E5%BD%95/index.html">
+<meta property="og:site_name" content="XH日常">
+<meta property="og:description" content="在使用 Hexo 搭建个人博客后，很多人都会遇到一个问题网站已经上线，但在 Google &#x2F; Bing 搜索中却完全搜不到  Hexo 博客为什么默认搜不到Hexo 是一个纯静态站点生成器，本身不具备自动推送搜索引擎的能力：  ❌ 没有后端接口 ❌ 不会主动通知搜索引擎 ❌ 新站点权重极低  所以如果什么都不做，搜索引擎只能靠“偶然爬取”，速度非常慢，甚至长期不收录。 上线前的基础准备">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://kitenx.github.io/huyanqun.github.io/img/seo.png">
+<meta property="article:published_time" content="2026-01-16T06:13:13.000Z">
+<meta property="article:modified_time" content="2026-01-16T07:47:08.000Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="SEO">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://kitenx.github.io/huyanqun.github.io/img/seo.png">
+  
+  
+  
+  <title>如何被Google和Bing收录 - XH日常</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/huyanqun.github.io/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/huyanqun.github.io/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/huyanqun.github.io/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="/huyanqun.github.io/css/custom.css">
+<link rel="stylesheet" href="/huyanqun.github.io/css/shubiao.css">
+<link rel="stylesheet" href="/huyanqun.github.io/css/scroll.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"kitenx.github.io","root":"/huyanqun.github.io/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/huyanqun.github.io/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/huyanqun.github.io/js/utils.js" ></script>
+  <script  src="/huyanqun.github.io/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/huyanqun.github.io/">
+      <strong>XH日常</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/huyanqun.github.io/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/huyanqun.github.io/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/huyanqun.github.io/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/huyanqun.github.io/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/huyanqun.github.io/links/" target="_self">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/huyanqun.github.io/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/huyanqun.github.io/img/14859.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="如何被Google和Bing收录"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        John Doe
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2026-01-16 14:13" pubdate>
+          2026年1月16日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          758 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          7 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">如何被Google和Bing收录</h1>
+            
+              <p id="updated-time" class="note note-info" style="">
+                
+                  
+                    本文最后更新于 2026年1月16日 下午
+                  
+                
+              </p>
+            
+            
+              <div class="markdown-body">
+                
+                <blockquote>
+<p>在使用 Hexo 搭建个人博客后，很多人都会遇到一个问题<br><strong>网站已经上线，但在 Google &#x2F; Bing 搜索中却完全搜不到</strong></p>
+</blockquote>
+<h3 id="Hexo-博客为什么默认搜不到"><a href="#Hexo-博客为什么默认搜不到" class="headerlink" title="Hexo 博客为什么默认搜不到"></a>Hexo 博客为什么默认搜不到</h3><p>Hexo 是一个<strong>纯静态站点生成器</strong>，本身不具备自动推送搜索引擎的能力：</p>
+<ul>
+<li>❌ 没有后端接口</li>
+<li>❌ 不会主动通知搜索引擎</li>
+<li>❌ 新站点权重极低</li>
+</ul>
+<p>所以如果<strong>什么都不做</strong>，搜索引擎只能靠“偶然爬取”，速度非常慢，甚至长期不收录。</p>
+<h3 id="上线前的基础准备（很重要）"><a href="#上线前的基础准备（很重要）" class="headerlink" title="上线前的基础准备（很重要）"></a>上线前的基础准备（很重要）</h3><p>在提交搜索引擎之前，需要先确保下面几点已经完成：</p>
+<p>1️⃣ 网站可以正常访问</p>
+<ul>
+<li>域名已解析</li>
+<li>HTTPS 正常（强烈建议）</li>
+<li>无 403 &#x2F; 404 &#x2F; 重定向死循环</li>
+</ul>
+<p>可以直接在浏览器访问你的域名确认。</p>
+<p>2️⃣ 确保没有禁止爬虫</p>
+<p>检查 Hexo 根目录是否存在 <code>robots.txt</code>：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">User-agent: *<br>Allow: /<br></code></pre></td></tr></table></figure>
+
+<p>如果出现下面内容，会直接导致<strong>不收录</strong>：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">Disallow: /<br></code></pre></td></tr></table></figure>
+
+<p>3️⃣ 页面中存在有效内容</p>
+<ul>
+<li>至少 5～10 篇原创文章</li>
+<li>每篇文章有标题、正文</li>
+<li>避免空站 &#x2F; 只有首页</li>
+</ul>
+<h3 id="生成-sitemap（站点地图）"><a href="#生成-sitemap（站点地图）" class="headerlink" title="生成 sitemap（站点地图）"></a>生成 sitemap（站点地图）</h3><p><code>sitemap</code> 是搜索引擎最重要的入口文件之一。</p>
+<p>1️⃣ 安装插件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">npm install hexo-generator-sitemap hexo-generator-baidu-sitemap --save<br></code></pre></td></tr></table></figure>
+
+<p>2️⃣ 修改 <code>_config.yml</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash">sitemap:<br>  path: sitemap.xml<br><br>baidusitemap:<br>  path: baidusitemap.xml<br></code></pre></td></tr></table></figure>
+
+<p>3️⃣ 重新生成并部署</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">hexo clean<br>hexo g<br>hexo d<br></code></pre></td></tr></table></figure>
+
+<p>即可在 <code>public</code> 文件夹下找到新生成的 <code>sitemap.xml</code> 文件</p>
+<p>访问以下地址确认是否生成成功：</p>
+<ul>
+<li><code>https://你的域名/sitemap.xml</code></li>
+</ul>
+<img src="362.png" srcset="/huyanqun.github.io/img/loading.gif" lazyload class="custom-img" />
+
+<h3 id="提交-Google-Search-Console"><a href="#提交-Google-Search-Console" class="headerlink" title="提交 Google Search Console"></a>提交 Google Search Console</h3><p>1️⃣ 进入控制台</p>
+<p>👉 <a target="_blank" rel="noopener" href="https://search.google.com/search-console">https://search.google.com/search-console</a></p>
+<p>2️⃣ 添加网站</p>
+<p>推荐选择 <strong>URL 前缀方式</strong>，例如：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">https://example.com<br></code></pre></td></tr></table></figure>
+
+<img src="433.png" srcset="/huyanqun.github.io/img/loading.gif" lazyload class="custom-img" />
+
+<p>在弹出一个界面后，点击【前往资源界面】</p>
+<p>3️⃣ 下载验证 HTML 文件（推荐）</p>
+<img src="57.png" srcset="/huyanqun.github.io/img/loading.gif" lazyload class="custom-img" />
+
+<p>下载文件之后将 HTML 文件放入  Hexo 项目的 <code>source</code> 目录下</p>
+<img src="519.png" srcset="/huyanqun.github.io/img/loading.gif" lazyload class="custom-img" />
+
+<p>在 <code>_config.yml</code>配置文件里面添加</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">skip_render: googlee791ef57082cce86.html<br></code></pre></td></tr></table></figure>
+
+<p>4️⃣ 重新生成并部署</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">hexo clean<br>hexo g<br>hexo d<br></code></pre></td></tr></table></figure>
+
+<p>部署完成后，访问：</p>
+<img src="428.png" srcset="/huyanqun.github.io/img/loading.gif" lazyload class="custom-img" />
+
+<p>5️⃣ 完成验证</p>
+<p>回到 Google Search Console，点击 <strong>验证</strong>，即可通过。</p>
+<p>然后在 <strong>“站点地图”</strong> 中提交：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sitemap.xml<br></code></pre></td></tr></table></figure>
+
+<p>提交成功后，等待 Google 抓取。</p>
+<p>⏱ 一般 <strong>1～7 天内开始出现收录</strong></p>
+<h3 id="手动请求编入索引"><a href="#手动请求编入索引" class="headerlink" title="手动请求编入索引"></a>手动请求编入索引</h3><blockquote>
+<p>根据个人观察，Google 及时获取到站点地图后似乎不会立刻根据站点地图爬取网站，因此推荐再自行进行一次手动请求编入索引</p>
+<p>具体流程为：点击 GSC 的【网址检查】或者直接在顶部输入栏输入网站的根地址（也可以是其他子页面地址）</p>
+</blockquote>
+<img src="349.png" srcset="/huyanqun.github.io/img/loading.gif" lazyload class="custom-img" />
+
+<p>等待结果返回后，点击【请求编入索引】即可</p>
+<img src="682.png" srcset="/huyanqun.github.io/img/loading.gif" lazyload class="custom-img" />
+
+<p>收录成功</p>
+<img src="35.png" srcset="/huyanqun.github.io/img/loading.gif" lazyload class="custom-img" />
+
+<h3 id="提交-Bing-Webmaster-Tools"><a href="#提交-Bing-Webmaster-Tools" class="headerlink" title="提交 Bing Webmaster Tools"></a>提交 Bing Webmaster Tools</h3><p>1️⃣ 进入 Bing 管理工具</p>
+<p>👉 <a target="_blank" rel="noopener" href="https://www.bing.com/webmasters">https://www.bing.com/webmasters</a></p>
+<p>2️⃣ 添加站点</p>
+<p>支持：</p>
+<ul>
+<li>sitemap 导入</li>
+<li>或直接导入 Google Search Console 数据（推荐）</li>
+</ul>
+<p>3️⃣下载 Bing 验证文件放入 <code>source</code> 目录 部署提交 sitemap </p>
+<p>文件名通常类似：</p>
+<figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs lasso">BingSiteAuth.<span class="hljs-built_in">xml</span><br></code></pre></td></tr></table></figure>
+
+<img src="652.png" srcset="/huyanqun.github.io/img/loading.gif" lazyload class="custom-img" />
+
+<p>Bing 通常<strong>比 Google 收录更快</strong>。</p>
+<h3 id="如何确认是否被收录？"><a href="#如何确认是否被收录？" class="headerlink" title="如何确认是否被收录？"></a>如何确认是否被收录？</h3><p>Google &#x2F; Bing 通用方式：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">site:example.com<br></code></pre></td></tr></table></figure>
+
+<p>如果能看到页面列表，说明已经<strong>成功收录</strong> 🎉</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/huyanqun.github.io/categories/Web/" class="category-chain-item">Web</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/huyanqun.github.io/tags/SEO/" class="print-no-link">#SEO</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>如何被Google和Bing收录</div>
+      <div>https://kitenx.github.io/huyanqun.github.io/2026/01/16/如何被Google和Bing收录/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>John Doe</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2026年1月16日</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>更新于</div>
+          <div>2026年1月16日</div>
+        </div>
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/huyanqun.github.io/2026/01/16/git%E6%8F%90%E4%BA%A4%E4%BB%A3%E7%A0%81%E6%B3%A8%E9%87%8A%E8%A7%84%E8%8C%83/" title="git提交代码注释规范">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">git提交代码注释规范</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/huyanqun.github.io/2026/01/13/Mac%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E5%AE%8C%E6%95%B4%E6%96%B9%E6%A1%88/" title="Mac前端开发环境完整方案">
+                        <span class="hidden-mobile">Mac前端开发环境完整方案</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#comments', function() {
+      var light = 'github-light';
+      var dark = 'github-dark';
+      var schema = document.documentElement.getAttribute('data-user-color-scheme');
+      if (schema === 'dark') {
+        schema = dark;
+      } else {
+        schema = light;
+      }
+      window.UtterancesThemeLight = light;
+      window.UtterancesThemeDark = dark;
+      var s = document.createElement('script');
+      s.setAttribute('src', 'https://utteranc.es/client.js');
+      s.setAttribute('repo', 'KiteNX/comment-utterances');
+      s.setAttribute('issue-term', 'pathname');
+      
+      s.setAttribute('label', 'utterances');
+      
+      s.setAttribute('theme', schema);
+      s.setAttribute('crossorigin', 'anonymous');
+      document.getElementById('comments').appendChild(s);
+    })
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> <div>Copyright © 2024 HuYanQun</div> 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/huyanqun.github.io/js/events.js" ></script>
+<script  src="/huyanqun.github.io/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/huyanqun.github.io/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/huyanqun.github.io/js/local-search.js" ></script>
+
+
+
+
+  
+<script src="/huyanqun.github.io/js/DynamicRibbon.js"></script>
+<script src="/huyanqun.github.io/js/DynamicLine.js"></script>
+<script src="/huyanqun.github.io/js/snowflake.js"></script>
+<script src="/huyanqun.github.io/js/Cherry.js"></script>
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/huyanqun.github.io/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

@@ -1,0 +1,12 @@
+/* 将进度条的圆角去掉 */
+::-webkit-scrollbar-thumb {
+    border-radius: 0;
+}
+/* 自定义样式 */
+.custom-img {
+    border-radius: 10px;         /* 圆角 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);  /* 添加阴影 */
+    display: block; /* 使图片成为块级元素 */
+    margin: 10px auto; /* 水平居中 */
+}
+  

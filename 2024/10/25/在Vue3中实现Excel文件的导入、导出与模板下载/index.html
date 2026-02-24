@@ -1,0 +1,777 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/huyanqun.github.io/img/fluid.png">
+  <link rel="icon" href="/huyanqun.github.io/img/fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="在现代企业应用中，导入、导出功能是非常重要的一环，特别是需要批量处理数据时。本文将介绍如何在 Vue3 应用中实现客户数据的 Excel文件 导入、导出以及模板下载功能。将基于 Element Plus 和第三方库如 XLSX ，并结合 后端API 来完成这些功能  功能概述导出功能：用户可以将数据列表以Excel文件的形式导出。 导入功能：用户可以通过上传Excel文件，批量导入数据。 下载模">
+<meta property="og:type" content="article">
+<meta property="og:title" content="在Vue3中实现Excel文件的导入、导出与模板下载">
+<meta property="og:url" content="https://kitenx.github.io/huyanqun.github.io/2024/10/25/%E5%9C%A8Vue3%E4%B8%AD%E5%AE%9E%E7%8E%B0Excel%E6%96%87%E4%BB%B6%E7%9A%84%E5%AF%BC%E5%85%A5%E3%80%81%E5%AF%BC%E5%87%BA%E4%B8%8E%E6%A8%A1%E6%9D%BF%E4%B8%8B%E8%BD%BD/index.html">
+<meta property="og:site_name" content="XH日常">
+<meta property="og:description" content="在现代企业应用中，导入、导出功能是非常重要的一环，特别是需要批量处理数据时。本文将介绍如何在 Vue3 应用中实现客户数据的 Excel文件 导入、导出以及模板下载功能。将基于 Element Plus 和第三方库如 XLSX ，并结合 后端API 来完成这些功能  功能概述导出功能：用户可以将数据列表以Excel文件的形式导出。 导入功能：用户可以通过上传Excel文件，批量导入数据。 下载模">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://kitenx.github.io/huyanqun.github.io/img/blogsCom.jpg">
+<meta property="article:published_time" content="2024-10-25T01:11:18.000Z">
+<meta property="article:modified_time" content="2024-10-25T01:28:00.000Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="Vue">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://kitenx.github.io/huyanqun.github.io/img/blogsCom.jpg">
+  
+  
+  
+  <title>在Vue3中实现Excel文件的导入、导出与模板下载 - XH日常</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/huyanqun.github.io/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/huyanqun.github.io/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/huyanqun.github.io/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="/huyanqun.github.io/css/custom.css">
+<link rel="stylesheet" href="/huyanqun.github.io/css/shubiao.css">
+<link rel="stylesheet" href="/huyanqun.github.io/css/scroll.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"kitenx.github.io","root":"/huyanqun.github.io/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/huyanqun.github.io/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/huyanqun.github.io/js/utils.js" ></script>
+  <script  src="/huyanqun.github.io/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/huyanqun.github.io/">
+      <strong>XH日常</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/huyanqun.github.io/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/huyanqun.github.io/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/huyanqun.github.io/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/huyanqun.github.io/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/huyanqun.github.io/links/" target="_self">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/huyanqun.github.io/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/huyanqun.github.io/img/14859.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="在Vue3中实现Excel文件的导入、导出与模板下载"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        John Doe
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2024-10-25 09:11" pubdate>
+          2024年10月25日 上午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          1.4k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          13 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">在Vue3中实现Excel文件的导入、导出与模板下载</h1>
+            
+              <p id="updated-time" class="note note-info" style="">
+                
+                  
+                    本文最后更新于 2024年10月25日 上午
+                  
+                
+              </p>
+            
+            
+              <div class="markdown-body">
+                
+                <blockquote>
+<p>在现代企业应用中，导入、导出功能是非常重要的一环，特别是需要批量处理数据时。本文将介绍如何在 <code>Vue3</code> 应用中实现客户数据的 <code>Excel</code>文件 <strong>导入</strong>、<strong>导出</strong>以及<strong>模板下载</strong>功能。将基于 <code>Element Plus</code> 和第三方库如 <code>XLSX</code> ，并结合 <code>后端API</code> 来完成这些功能</p>
+</blockquote>
+<h3 id="功能概述"><a href="#功能概述" class="headerlink" title="功能概述"></a>功能概述</h3><p><strong>导出功能</strong>：用户可以将数据列表以Excel文件的形式导出。</p>
+<p><strong>导入功能</strong>：用户可以通过上传Excel文件，批量导入数据。</p>
+<p><strong>下载模板功能</strong>：提供一个标准的Excel模板供用户下载，确保上传的文件格式正确。</p>
+<h3 id="技术栈"><a href="#技术栈" class="headerlink" title="技术栈"></a>技术栈</h3><ul>
+<li>Vue3</li>
+<li>Element Plus</li>
+<li>XLSX库（用于解析和生成Excel文件）</li>
+<li>后端API接口（用于获取模板、导入、导出Excel数据）</li>
+</ul>
+<h3 id="代码展示"><a href="#代码展示" class="headerlink" title="代码展示"></a>代码展示</h3><h4 id="前端页面的布局"><a href="#前端页面的布局" class="headerlink" title="前端页面的布局"></a>前端页面的布局</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">template</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span><br>   	<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;excelBtn&quot;</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">el-button</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;success&quot;</span> @<span class="hljs-attr">click</span>=<span class="hljs-string">&quot;exportToExcel&quot;</span>&gt;</span>导出<span class="hljs-tag">&lt;/<span class="hljs-name">el-button</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">el-popover</span> <span class="hljs-attr">placement</span>=<span class="hljs-string">&quot;bottom&quot;</span> <span class="hljs-attr">:width</span>=<span class="hljs-string">&quot;200&quot;</span> <span class="hljs-attr">trigger</span>=<span class="hljs-string">&quot;click&quot;</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">template</span> #<span class="hljs-attr">default</span>&gt;</span><br>                <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;importBtn&quot;</span>&gt;</span><br>                    <span class="hljs-tag">&lt;<span class="hljs-name">el-button</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;primary&quot;</span> @<span class="hljs-attr">click</span>=<span class="hljs-string">&quot;downloadTemplate&quot;</span></span><br><span class="hljs-tag">                               &gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">i-ep-Download</span> /&gt;</span>下载模板&lt;/el-button<br>                        &gt;<br>                    <span class="hljs-tag">&lt;<span class="hljs-name">el-button</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;primary&quot;</span> @<span class="hljs-attr">click</span>=<span class="hljs-string">&quot;DialogImport&quot;</span></span><br><span class="hljs-tag">                               &gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">i-ep-Upload</span> /&gt;</span>开始导入&lt;/el-button<br>                        &gt;<br>                <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>            <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">template</span> #<span class="hljs-attr">reference</span>&gt;</span><br>                <span class="hljs-tag">&lt;<span class="hljs-name">el-button</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;success&quot;</span>&gt;</span>导入<span class="hljs-tag">&lt;/<span class="hljs-name">el-button</span>&gt;</span><br>            <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">el-popover</span>&gt;</span><br>      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">el-dialog</span></span><br><span class="hljs-tag">        <span class="hljs-attr">v-model</span>=<span class="hljs-string">&quot;showDialogImport&quot;</span></span><br><span class="hljs-tag">        <span class="hljs-attr">title</span>=<span class="hljs-string">&quot;导入数据&quot;</span></span><br><span class="hljs-tag">        <span class="hljs-attr">width</span>=<span class="hljs-string">&quot;1000px&quot;</span></span><br><span class="hljs-tag">        <span class="hljs-attr">append-to-body</span></span><br><span class="hljs-tag">      &gt;</span><br>        <span class="hljs-comment">&lt;!-- 导入表单 --&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">el-form</span> <span class="hljs-attr">:model</span>=<span class="hljs-string">&quot;importData&quot;</span> <span class="hljs-attr">label-width</span>=<span class="hljs-string">&quot;100px&quot;</span>&gt;</span><br>          <span class="hljs-tag">&lt;<span class="hljs-name">el-form-item</span> <span class="hljs-attr">label</span>=<span class="hljs-string">&quot;Excel文件&quot;</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">el-upload</span></span><br><span class="hljs-tag">              <span class="hljs-attr">ref</span>=<span class="hljs-string">&quot;uploadRef&quot;</span></span><br><span class="hljs-tag">              <span class="hljs-attr">action</span>=<span class="hljs-string">&quot;&quot;</span></span><br><span class="hljs-tag">              <span class="hljs-attr">drag</span></span><br><span class="hljs-tag">              <span class="hljs-attr">accept</span>=<span class="hljs-string">&quot;application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel&quot;</span></span><br><span class="hljs-tag">              <span class="hljs-attr">:limit</span>=<span class="hljs-string">&quot;1&quot;</span></span><br><span class="hljs-tag">              <span class="hljs-attr">:auto-upload</span>=<span class="hljs-string">&quot;false&quot;</span></span><br><span class="hljs-tag">              <span class="hljs-attr">:file-list</span>=<span class="hljs-string">&quot;importData.fileList&quot;</span></span><br><span class="hljs-tag">              <span class="hljs-attr">:on-change</span>=<span class="hljs-string">&quot;handleFileChange&quot;</span></span><br><span class="hljs-tag">              <span class="hljs-attr">:on-exceed</span>=<span class="hljs-string">&quot;handleFileExceed&quot;</span></span><br><span class="hljs-tag">            &gt;</span><br>              <span class="hljs-tag">&lt;<span class="hljs-name">el-icon</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;el-icon--upload&quot;</span>&gt;</span><br>                <span class="hljs-tag">&lt;<span class="hljs-name">i-ep-upload-filled</span> /&gt;</span><br>              <span class="hljs-tag">&lt;/<span class="hljs-name">el-icon</span>&gt;</span><br>              <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;el-upload__text&quot;</span>&gt;</span><br>                将文件拖到此处，或<br>                <span class="hljs-tag">&lt;<span class="hljs-name">em</span>&gt;</span>点击上传<span class="hljs-tag">&lt;/<span class="hljs-name">em</span>&gt;</span><br>              <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>              <span class="hljs-tag">&lt;<span class="hljs-name">template</span> #<span class="hljs-attr">tip</span>&gt;</span><br>                <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>xls/xlsx files<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>              <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span><br>            <span class="hljs-tag">&lt;/<span class="hljs-name">el-upload</span>&gt;</span><br>          <span class="hljs-tag">&lt;/<span class="hljs-name">el-form-item</span>&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">el-form</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">template</span> #<span class="hljs-attr">footer</span>&gt;</span><br>          <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;dialog-footer&quot;</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">el-button</span> @<span class="hljs-attr">click</span>=<span class="hljs-string">&quot;showDialogImport = false&quot;</span>&gt;</span>取消<span class="hljs-tag">&lt;/<span class="hljs-name">el-button</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">el-button</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;primary&quot;</span> @<span class="hljs-attr">click</span>=<span class="hljs-string">&quot;importToExcel()&quot;</span>&gt;</span>确定<span class="hljs-tag">&lt;/<span class="hljs-name">el-button</span>&gt;</span><br>          <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span><br>      <span class="hljs-tag">&lt;/<span class="hljs-name">el-dialog</span>&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">template</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<h4 id="导入包和依赖-封装的接口，XLSX库，Element-Plus"><a href="#导入包和依赖-封装的接口，XLSX库，Element-Plus" class="headerlink" title="导入包和依赖 (封装的接口，XLSX库，Element Plus)"></a>导入包和依赖 (封装的接口，XLSX库，Element Plus)</h4><figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs ts"><span class="hljs-keyword">import</span> <span class="hljs-title class_">CustomerAPI</span> <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;@/api/customer&quot;</span>;<br><span class="hljs-keyword">import</span> <span class="hljs-keyword">type</span> &#123; <span class="hljs-title class_">UploadInstance</span> &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;element-plus&quot;</span>;<br><span class="hljs-keyword">import</span> &#123; genFileId &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;element-plus&quot;</span>;<br><span class="hljs-keyword">import</span> <span class="hljs-variable constant_">XLSX</span> <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;xlsx&quot;</span>;<br></code></pre></td></tr></table></figure>
+
+<h4 id="实现数据导出功能"><a href="#实现数据导出功能" class="headerlink" title="实现数据导出功能"></a>实现数据导出功能</h4><blockquote>
+<p>导出功能允许用户将数据以 Excel 文件形式下载。通过调用后端 API，将服务器返回的 Excel 文件以 Blob 格式创建下载链接，触发浏览器的下载操作。</p>
+</blockquote>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs ts"><span class="hljs-keyword">const</span> pageQuery = <span class="hljs-title function_">reactive</span>(&#123;<br>  <span class="hljs-attr">pageNum</span>: <span class="hljs-number">1</span>,<br>  <span class="hljs-attr">pageSize</span>: <span class="hljs-number">10</span>,<br>&#125;);<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs ts"><span class="hljs-keyword">const</span> <span class="hljs-title function_">exportToExcel</span> = (<span class="hljs-params"></span>) =&gt; &#123;<br>  <span class="hljs-title class_">CustomerAPI</span>.<span class="hljs-title function_">exportCustmoer</span>(pageQuery).<span class="hljs-title function_">then</span>(<span class="hljs-function">(<span class="hljs-params"><span class="hljs-attr">response</span>: <span class="hljs-built_in">any</span></span>) =&gt;</span> &#123;<br>    <span class="hljs-keyword">const</span> fileData = response.<span class="hljs-property">data</span>;<br>    <span class="hljs-keyword">const</span> fileName = <span class="hljs-built_in">decodeURI</span>(<br>      response.<span class="hljs-property">headers</span>[<span class="hljs-string">&quot;content-disposition&quot;</span>].<span class="hljs-title function_">split</span>(<span class="hljs-string">&quot;;&quot;</span>)[<span class="hljs-number">1</span>].<span class="hljs-title function_">split</span>(<span class="hljs-string">&quot;=&quot;</span>)[<span class="hljs-number">1</span>]<br>    );<br>    <span class="hljs-keyword">const</span> fileType =<br>      <span class="hljs-string">&quot;application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=utf-8&quot;</span>;<br><br>    <span class="hljs-comment">// 创建 Blob 对象并生成下载链接</span><br>    <span class="hljs-keyword">const</span> blob = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Blob</span>([fileData], &#123; <span class="hljs-attr">type</span>: fileType &#125;);<br>    <span class="hljs-keyword">const</span> downloadUrl = <span class="hljs-variable language_">window</span>.<span class="hljs-property">URL</span>.<span class="hljs-title function_">createObjectURL</span>(blob);<br><br>    <span class="hljs-keyword">const</span> downloadLink = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">createElement</span>(<span class="hljs-string">&quot;a&quot;</span>);<br>    downloadLink.<span class="hljs-property">href</span> = downloadUrl;<br>    downloadLink.<span class="hljs-property">download</span> = fileName;<br><br>    <span class="hljs-variable language_">document</span>.<span class="hljs-property">body</span>.<span class="hljs-title function_">appendChild</span>(downloadLink);<br>    downloadLink.<span class="hljs-title function_">click</span>();<br><br>    <span class="hljs-variable language_">document</span>.<span class="hljs-property">body</span>.<span class="hljs-title function_">removeChild</span>(downloadLink);<br>    <span class="hljs-variable language_">window</span>.<span class="hljs-property">URL</span>.<span class="hljs-title function_">revokeObjectURL</span>(downloadUrl);<br>  &#125;);<br>&#125;;<br></code></pre></td></tr></table></figure>
+
+<h4 id="实现数据导入模板下载功能"><a href="#实现数据导入模板下载功能" class="headerlink" title="实现数据导入模板下载功能"></a>实现数据导入模板下载功能</h4><blockquote>
+<p>模板下载功能允许用户下载一个标准的 Excel 文件，用户可以根据此文件的格式准备数据进行批量导入。此功能通过后端 API 提供文件模板，前端通过类似于导出功能的方式将文件下载到本地。</p>
+</blockquote>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs ts"><span class="hljs-keyword">const</span> <span class="hljs-title function_">downloadTemplate</span> = (<span class="hljs-params"></span>) =&gt; &#123;<br>  <span class="hljs-title class_">CustomerAPI</span>.<span class="hljs-title function_">customerTemplate</span>().<span class="hljs-title function_">then</span>(<span class="hljs-function">(<span class="hljs-params">res</span>) =&gt;</span> &#123;<br>    <span class="hljs-keyword">const</span> fileData = res.<span class="hljs-property">data</span>;<br>    <span class="hljs-keyword">const</span> fileName = <span class="hljs-built_in">decodeURI</span>(<br>      res.<span class="hljs-property">headers</span>[<span class="hljs-string">&quot;content-disposition&quot;</span>].<span class="hljs-title function_">split</span>(<span class="hljs-string">&quot;;&quot;</span>)[<span class="hljs-number">1</span>].<span class="hljs-title function_">split</span>(<span class="hljs-string">&quot;=&quot;</span>)[<span class="hljs-number">1</span>]<br>    );<br>    <span class="hljs-keyword">const</span> fileType =<br>      <span class="hljs-string">&quot;application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=utf-8&quot;</span>;<br>    <span class="hljs-keyword">const</span> blob = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Blob</span>([fileData], &#123; <span class="hljs-attr">type</span>: fileType &#125;);<br>    <span class="hljs-keyword">const</span> downloadUrl = <span class="hljs-variable language_">window</span>.<span class="hljs-property">URL</span>.<span class="hljs-title function_">createObjectURL</span>(blob);<br>    <span class="hljs-keyword">const</span> downloadLink = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">createElement</span>(<span class="hljs-string">&quot;a&quot;</span>);<br>    downloadLink.<span class="hljs-property">href</span> = downloadUrl;<br>    downloadLink.<span class="hljs-property">download</span> = fileName;<br>    <span class="hljs-variable language_">document</span>.<span class="hljs-property">body</span>.<span class="hljs-title function_">appendChild</span>(downloadLink);<br>    downloadLink.<span class="hljs-title function_">click</span>();<br>    <span class="hljs-variable language_">document</span>.<span class="hljs-property">body</span>.<span class="hljs-title function_">removeChild</span>(downloadLink);<br>    <span class="hljs-variable language_">window</span>.<span class="hljs-property">URL</span>.<span class="hljs-title function_">revokeObjectURL</span>(downloadUrl);<br>  &#125;);<br>&#125;;<br></code></pre></td></tr></table></figure>
+
+<h4 id="实现客户数据导入功能"><a href="#实现客户数据导入功能" class="headerlink" title="实现客户数据导入功能"></a>实现客户数据导入功能</h4><blockquote>
+<p>导入功能需要用户上传一个 Excel 文件，文件内容会被解析并通过 API 提交到后端。我们使用 Element Plus 的 <code>el-upload</code> 组件实现上传功能，同时处理文件变更和上传过程中的错误处理。</p>
+</blockquote>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><code class="hljs ts"><span class="hljs-comment">// 控制导入弹窗</span><br><span class="hljs-keyword">const</span> showDialogImport = <span class="hljs-title function_">ref</span>(<span class="hljs-literal">false</span>);<br><span class="hljs-comment">// 导入数据</span><br><span class="hljs-keyword">const</span> importData = <span class="hljs-title function_">reactive</span>(&#123;<br>  <span class="hljs-attr">file</span>: <span class="hljs-literal">undefined</span>,<br>  <span class="hljs-attr">fileList</span>: [],<br>&#125;);<br><span class="hljs-comment">// 上传的组件</span><br><span class="hljs-keyword">const</span> uploadRef = ref&lt;<span class="hljs-title class_">UploadInstance</span>&gt;();<br><br><span class="hljs-comment">// 处理文件变更</span><br><span class="hljs-keyword">function</span> <span class="hljs-title function_">handleFileChange</span>(<span class="hljs-params"><span class="hljs-attr">file</span>: <span class="hljs-built_in">any</span></span>) &#123;<br>  importData.<span class="hljs-property">file</span> = file.<span class="hljs-property">raw</span>;<br>&#125;<br><br><span class="hljs-comment">// 处理文件上传超出限制</span><br><span class="hljs-keyword">function</span> <span class="hljs-title function_">handleFileExceed</span>(<span class="hljs-params"><span class="hljs-attr">files</span>: <span class="hljs-built_in">any</span></span>) &#123;<br>  uploadRef.<span class="hljs-property">value</span>!.<span class="hljs-title function_">clearFiles</span>();<br>  <span class="hljs-keyword">const</span> file = files[<span class="hljs-number">0</span>];<br>  file.<span class="hljs-property">uid</span> = <span class="hljs-title function_">genFileId</span>();<br>  uploadRef.<span class="hljs-property">value</span>!.<span class="hljs-title function_">handleStart</span>(file);<br>  importData.<span class="hljs-property">file</span> = file;<br>&#125;<br><br><span class="hljs-comment">// 打开导入弹窗</span><br><span class="hljs-keyword">const</span> <span class="hljs-title function_">DialogImport</span> = (<span class="hljs-params"></span>) =&gt; &#123;<br>  showDialogImport.<span class="hljs-property">value</span> = <span class="hljs-literal">true</span>;<br>&#125;;<br><br><span class="hljs-comment">// 提交导入</span><br><span class="hljs-keyword">const</span> <span class="hljs-title function_">importToExcel</span> = (<span class="hljs-params"></span>) =&gt; &#123;<br>  <span class="hljs-keyword">if</span> (!importData?.<span class="hljs-property">file</span>) &#123;<br>    <span class="hljs-title class_">ElMessage</span>.<span class="hljs-title function_">warning</span>(<span class="hljs-string">&quot;上传Excel文件不能为空&quot;</span>);<br>    <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>  &#125;<br>  <span class="hljs-title class_">CustomerAPI</span>.<span class="hljs-title function_">importCustmoer</span>(importData.<span class="hljs-property">file</span>)<br>    .<span class="hljs-title function_">then</span>(<span class="hljs-function">() =&gt;</span> &#123;<br>      <span class="hljs-title class_">ElMessage</span>.<span class="hljs-title function_">success</span>(<span class="hljs-string">&quot;导入成功&quot;</span>);<br>      showDialogImport.<span class="hljs-property">value</span> = <span class="hljs-literal">false</span>;<br>      <span class="hljs-title function_">findAll</span>();  <span class="hljs-comment">// 刷新表格数据</span><br>    &#125;)<br>    .<span class="hljs-title function_">catch</span>(<span class="hljs-function">(<span class="hljs-params">error</span>) =&gt;</span> &#123;<br>      <span class="hljs-title class_">ElMessage</span>.<span class="hljs-title function_">error</span>(<span class="hljs-string">&quot;导入失败，请重试&quot;</span>);<br>      <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">error</span>(error);<br>    &#125;);<br>&#125;;<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>findAll 这个方法是刷新表格数据 这里没有自己写一个 就可以 主要是处理导入功能</p>
+</blockquote>
+<h3 id="后端-API接口"><a href="#后端-API接口" class="headerlink" title="后端 API接口"></a>后端 API接口</h3><blockquote>
+<p>request 是封装的请求</p>
+<p>.&#x2F;model 是请求参数和响应数据</p>
+<p>.&#x2F;index 接口</p>
+</blockquote>
+<p>.&#x2F;index</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><code class="hljs ts"><span class="hljs-keyword">import</span> request <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;@/utils/request&quot;</span>;<br><span class="hljs-keyword">import</span> &#123; <span class="hljs-title class_">BasePageQuery</span> &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;./model&quot;</span>;<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">CustomerAPI</span> &#123;<br>    <br>  <span class="hljs-comment">// 数据列表导入模板下载</span><br>  <span class="hljs-keyword">static</span> <span class="hljs-title function_">customerTemplate</span>(<span class="hljs-params"></span>) &#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-title function_">request</span>(&#123;<br>      <span class="hljs-attr">url</span>: <span class="hljs-string">&quot;/api/v1/customers/template&quot;</span>,<br>      <span class="hljs-attr">method</span>: <span class="hljs-string">&quot;get&quot;</span>,<br>      <span class="hljs-attr">responseType</span>: <span class="hljs-string">&quot;arraybuffer&quot;</span>,<br>    &#125;);<br>  &#125;<br>    <br>  <span class="hljs-comment">// 导出</span><br>  <span class="hljs-keyword">static</span> <span class="hljs-title function_">exportCustmoer</span>(<span class="hljs-params"><span class="hljs-attr">data</span>: <span class="hljs-title class_">BasePageQuery</span></span>) &#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-title function_">request</span>(&#123;<br>      <span class="hljs-attr">url</span>: <span class="hljs-string">&quot;/api/v1/customers/_export&quot;</span>,<br>      <span class="hljs-attr">method</span>: <span class="hljs-string">&quot;get&quot;</span>,<br>      <span class="hljs-attr">params</span>: data,<br>      <span class="hljs-attr">responseType</span>: <span class="hljs-string">&quot;arraybuffer&quot;</span>,<br>    &#125;);<br>  &#125;<br>    <br>  <span class="hljs-comment">// 导入</span><br>  <span class="hljs-keyword">static</span> <span class="hljs-title function_">importCustmoer</span>(<span class="hljs-params"><span class="hljs-attr">file</span>: <span class="hljs-title class_">File</span></span>) &#123;<br>    <span class="hljs-keyword">const</span> formData = <span class="hljs-keyword">new</span> <span class="hljs-title class_">FormData</span>();<br>    formData.<span class="hljs-title function_">append</span>(<span class="hljs-string">&quot;file&quot;</span>, file);<br>    <span class="hljs-keyword">return</span> <span class="hljs-title function_">request</span>(&#123;<br>      <span class="hljs-attr">url</span>: <span class="hljs-string">&quot;/api/v1/customers/_import&quot;</span>,<br>      <span class="hljs-attr">method</span>: <span class="hljs-string">&quot;post&quot;</span>,<br>      <span class="hljs-attr">data</span>: formData,<br>      <span class="hljs-attr">headers</span>: &#123;<br>        <span class="hljs-string">&quot;Content-Type&quot;</span>: <span class="hljs-string">&quot;multipart/form-data&quot;</span>,<br>      &#125;,<br>    &#125;);<br>  &#125;<br>    <br>&#125;<br><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-title class_">CustomerAPI</span>;<br></code></pre></td></tr></table></figure>
+
+<p>.&#x2F;model</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs ts"><span class="hljs-keyword">export</span> <span class="hljs-keyword">interface</span> <span class="hljs-title class_">BasePageQuery</span> &#123;<br>  <span class="hljs-attr">pageNum</span>: <span class="hljs-built_in">number</span>;<br>  <span class="hljs-attr">pageSize</span>: <span class="hljs-built_in">number</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>本文展示了如何在 Vue 项目中使用 Element Plus 实现数据的导入、导出和模板下载功能。通过调用后端 API 并结合前端 Blob 和 URL 对象，可以轻松地处理 Excel 文件的上传和下载。</p>
+</blockquote>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/huyanqun.github.io/categories/Web/" class="category-chain-item">Web</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/huyanqun.github.io/tags/Vue/" class="print-no-link">#Vue</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>在Vue3中实现Excel文件的导入、导出与模板下载</div>
+      <div>https://kitenx.github.io/huyanqun.github.io/2024/10/25/在Vue3中实现Excel文件的导入、导出与模板下载/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>John Doe</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2024年10月25日</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>更新于</div>
+          <div>2024年10月25日</div>
+        </div>
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/huyanqun.github.io/2024/10/25/el-date-picker%E7%BB%84%E4%BB%B6-UTC-%E6%97%B6%E9%97%B4%E6%A0%BC%E5%BC%8F%E9%97%AE%E9%A2%98/" title="el-date-picker组件 UTC 时间格式问题">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">el-date-picker组件 UTC 时间格式问题</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/huyanqun.github.io/2024/10/17/%E5%9C%A8-Vue-%E4%B8%AD%E8%BF%9B%E8%A1%8C%E6%97%A5%E6%9C%9F%E6%A0%BC%E5%BC%8F%E8%BD%AC%E6%8D%A2/" title="在 Vue 中进行日期格式转换">
+                        <span class="hidden-mobile">在 Vue 中进行日期格式转换</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#comments', function() {
+      var light = 'github-light';
+      var dark = 'github-dark';
+      var schema = document.documentElement.getAttribute('data-user-color-scheme');
+      if (schema === 'dark') {
+        schema = dark;
+      } else {
+        schema = light;
+      }
+      window.UtterancesThemeLight = light;
+      window.UtterancesThemeDark = dark;
+      var s = document.createElement('script');
+      s.setAttribute('src', 'https://utteranc.es/client.js');
+      s.setAttribute('repo', 'KiteNX/comment-utterances');
+      s.setAttribute('issue-term', 'pathname');
+      
+      s.setAttribute('label', 'utterances');
+      
+      s.setAttribute('theme', schema);
+      s.setAttribute('crossorigin', 'anonymous');
+      document.getElementById('comments').appendChild(s);
+    })
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> <div>Copyright © 2024 HuYanQun</div> 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/huyanqun.github.io/js/events.js" ></script>
+<script  src="/huyanqun.github.io/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/huyanqun.github.io/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/huyanqun.github.io/js/local-search.js" ></script>
+
+
+
+
+  
+<script src="/huyanqun.github.io/js/DynamicRibbon.js"></script>
+<script src="/huyanqun.github.io/js/DynamicLine.js"></script>
+<script src="/huyanqun.github.io/js/snowflake.js"></script>
+<script src="/huyanqun.github.io/js/Cherry.js"></script>
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/huyanqun.github.io/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
