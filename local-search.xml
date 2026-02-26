@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>从0到1部署OpenClaw-Feishu篇</title>
+    <link href="/huyanqun.github.io/2026/02/26/%E4%BB%8E0%E5%88%B01%E9%83%A8%E7%BD%B2OpenClaw-Feishu%E7%AF%87/"/>
+    <url>/huyanqun.github.io/2026/02/26/%E4%BB%8E0%E5%88%B01%E9%83%A8%E7%BD%B2OpenClaw-Feishu%E7%AF%87/</url>
+    
+    <content type="html"><![CDATA[<h3 id="OpenClaw-是什么？"><a href="#OpenClaw-是什么？" class="headerlink" title="OpenClaw 是什么？"></a>OpenClaw 是什么？</h3><p>OpenClaw (原名 Clawdbot , 后更名为 Moltbot , 现正式命名为 OpenClaw ) 是一个运行在你本地环境的高权限 AI 智能体。它的核心特性包括：</p><ul><li><strong>本地部署</strong>：运行在你的服务器或电脑上,数据完全自主可控</li><li><strong>多平台支持</strong>：支持飞书、WhatsApp、Telegram、Discord、Feishu、Slack 等主流聊天工具</li><li><strong>浏览器控制</strong>：可以浏览网页、填写表单、提取数据</li><li><strong>系统访问</strong>：读写文件、执行 Shell 命令、运行脚本</li><li><strong>持久化记忆</strong>：记住你的偏好和上下文,成为真正属于你的 AI</li><li><strong>插件扩展</strong>：支持社区技能插件,甚至可以自己编写插件</li></ul><h3 id="安装-OpenClaw-Windows"><a href="#安装-OpenClaw-Windows" class="headerlink" title="安装 OpenClaw-Windows"></a>安装 OpenClaw-Windows</h3><p>1️⃣ 环境准备</p><ul><li>Node.js 22+</li><li>npm<br>检查：<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">node -v<br></code></pre></td></tr></table></figure>2️⃣ 安装<br>官网：<a href="https://openclaw.ai/">https://openclaw.ai/</a><img src="13.png" class="custom-img" /></li></ul><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">curl -fsSL https://openclaw.ai/install.cmd -o install.cmd &amp;&amp; install.cmd &amp;&amp; del install.cmd<br></code></pre></td></tr></table></figure><p>如果首次安装，时间会很长，需要耐心等待。<br>成功之后会输出如下图片<br><img src="2026.png" class="custom-img" /><br>第一个选项选择 <code>yes</code>, 就是询问你是否知道风险的，只有选择 yes 才能到下一步，如果选择 no 直接结束了<br>第二步选择 <code>QuickStart</code><br><img src="1166.png" class="custom-img" /><br>第三步选择模型服务商，这里选择 <code>MiniMax</code>或者和 <code>Qwen</code>，免费额度充足，适合入门使用<br><img src="2080.png" class="custom-img" /><br>选择模型后，会提供一个链接，并自动在浏览器中打开，由于我已登录过，所以显示账户信息，直接授权即可；如果尚未登录，按照提示完成登录即可<br><img src="907.png" class="custom-img" /><br>第四步然后会出现选择聊天工具的选项，默认集成的都是国外的平台，这里先直接跳过，后面再通过插件的方式接入 <code>飞书</code><br><img src="112.png" class="custom-img" /><br>Skill 和 Hooks 也先跳过，暂时先不配置：<br><img src="939.png" class="custom-img" /><br>然后选择的 Web Ui 打开：<br><img src="827.png" class="custom-img" /><br>随后会在浏览器打开 <a href="http://127.0.0.1:18789/">http://127.0.0.1:18789</a><br><img src="249.png" class="custom-img" /></p><h3 id="ClawBot如何接入飞书"><a href="#ClawBot如何接入飞书" class="headerlink" title="ClawBot如何接入飞书"></a>ClawBot如何接入飞书</h3><p>为了可以随时随地使用 ClawdBot ，我们需要接入 IM 通信软件。<br>国内的话可以考虑接入飞书，因为它生态相对开放，接入起来会比较方便，同时支持PC电脑端和手机移动端。<br><strong>1. 创建飞书应用</strong><br>打开 <code>飞书开放平台</code>，创建新的应用, 名字就叫 “ClawdBot”<br><img src="866.png" class="custom-img" /><br>创建完成后查看App ID 和 App Secret<br><img src="362.png" class="custom-img" /><br><strong>2. ClawdBot 安装飞书插件</strong></p><p>ClawdBot 飞书插件的地址如下 <a href="https://link.zhihu.com/?target=https://github.com/m1heng/clawdbot-feishu.git">https://github.com/m1heng/clawdbot-feishu.git</a><br>按照插件的说明文档，执行下方命令即可安装</p><p>也可以让 openclaw 给你安装 飞书的插件 然后吧 App ID 和 App Secret 给配置好<br><img src="909.png" class="custom-img" /></p><img src="055.png" class="custom-img" />**3. 配置飞书应用机器人能力与消息权限**> 添加机器人<img src="726.png" class="custom-img" />> 开通权限<img src="743.png" class="custom-img" /><blockquote><p>阅相关事件<br><img src="489.png" class="custom-img" /></p></blockquote><blockquote><p>订阅方式选默认推荐的长连接，添加上以下事件<br><img src="880.png" class="custom-img" /></p></blockquote><blockquote><p>编辑完之后创建版本并发布<br><img src="129.png" class="custom-img" /><br>等待审核通过之后，打开你的飞书-&gt;搜索开发者小助手-&gt;找到刚建成的机器人，打开应用，即可对话~<br><img src="782.png" class="custom-img" /></p></blockquote><img src="417.png" class="custom-img" /><h3 id="openclaw的常用命令"><a href="#openclaw的常用命令" class="headerlink" title="openclaw的常用命令"></a>openclaw的常用命令</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash">Openclaw gateway <span class="hljs-comment"># 启动主程序</span><br><br>Openclaw tui  <span class="hljs-comment"># 进入控制台对话界面</span><br><br>Openclaw dashboard  <span class="hljs-comment"># 进入网页版控制台</span><br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>开源项目</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>AI-Agent</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Hexo 主题的使用</title>
     <link href="/huyanqun.github.io/2026/01/20/Hexo%20%E4%B8%BB%E9%A2%98%E7%9A%84%E4%BD%BF%E7%94%A8/"/>
     <url>/huyanqun.github.io/2026/01/20/Hexo%20%E4%B8%BB%E9%A2%98%E7%9A%84%E4%BD%BF%E7%94%A8/</url>
@@ -63,14 +88,14 @@
     
     <categories>
       
-      <category>Web</category>
+      <category>AI</category>
       
     </categories>
     
     
     <tags>
       
-      <tag>AI</tag>
+      <tag>前端</tag>
       
     </tags>
     
@@ -263,14 +288,14 @@
     
     <categories>
       
-      <category>人工智能</category>
+      <category>AI</category>
       
     </categories>
     
     
     <tags>
       
-      <tag>模型训练</tag>
+      <tag>开源模型</tag>
       
     </tags>
     
